@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FeedbackReaction Component should match snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="FeedbackReaction-component"
+  >
+    <h3
+      data-testid="feedBackReaction-title"
+    >
+       Awesome
+    </h3>
+    <img
+      alt="awesome_face"
+      src="awesome_face"
+    />
+  </div>
+</DocumentFragment>
+`;

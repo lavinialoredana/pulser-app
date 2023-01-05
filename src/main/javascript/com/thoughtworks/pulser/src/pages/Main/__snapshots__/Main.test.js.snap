@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Main Page should match snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="Main"
+  >
+    <header
+      class="Main-header"
+    >
+      <h1
+        data-testid="main-header"
+      >
+         How are you feeling today?  
+      </h1>
+    </header>
+  </div>
+</DocumentFragment>
+`;

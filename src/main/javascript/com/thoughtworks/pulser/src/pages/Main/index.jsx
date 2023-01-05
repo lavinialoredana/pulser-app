@@ -1,3 +1,4 @@
+import Reactions from "../../components/Reactions";
 import "././Main.css";
 
 function Main() {
@@ -6,6 +7,9 @@ function Main() {
       <header className="Main-header">
         <h1 data-testid="main-header"> How are you feeling today?  </h1>
       </header>
+      <div>
+        <Reactions/>
+      </div>
     </div>
   );
 }

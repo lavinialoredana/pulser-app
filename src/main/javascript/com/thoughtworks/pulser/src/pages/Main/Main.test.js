@@ -1,10 +1,15 @@
 import { cleanup, render, screen } from "@testing-library/react";
-import Main from "./index.jsx"
-
+import Main from "./index.jsx";
 
 describe("Main Page", () => {
   afterEach(() => {
     cleanup();
+  });
+
+  it("should match snapshot", () => {
+    const { asFragment } = render(<Main />);
+
+    expect(asFragment()).toMatchSnapshot();
   });
 
   it("should contain header", () => {
@@ -15,11 +20,11 @@ describe("Main Page", () => {
     expect(mainHeaderElement).toBeInTheDocument();
   });
 
-  it("should render the", ()=>{
-    render(<Main/>);
+  it("should render the title", () => {
+    render(<Main />);
 
-    const headerText = screen.getByText('How are you feeling today?');
-    
+    const headerText = screen.getByText("How are you feeling today?");
+
     expect(headerText).toBeInTheDocument();
-  })
+  });
 });
