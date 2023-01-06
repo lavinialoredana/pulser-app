@@ -1,11 +1,12 @@
 import React from "react";
 import { reactionsArray } from "../../utils/reactionsUtils";
 import FeedbackReaction from "../FeedbackReaction";
+import "./Reactions.css"
 
 const Reactions = () => {
   
   return (
-    <div className="Reactions-main-container">
+    <div className="Reactions-container">
       {reactionsArray.map((reaction) => {
         return(
           <div key={reaction.key}>
