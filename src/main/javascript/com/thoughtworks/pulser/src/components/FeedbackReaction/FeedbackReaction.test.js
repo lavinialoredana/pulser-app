@@ -1,31 +1,47 @@
 import { cleanup, render, screen } from "@testing-library/react";
 import FeedbackReaction from "./index.jsx";
 
-describe("FeedbackReaction Component", ()=>{
-    afterEach(()=>{
-        cleanup();
-    });
+describe("FeedbackReaction Component", () => {
+  afterEach(() => {
+    cleanup();
+  });
 
-    it("should contain h3 title", ()=>{
-        render(<FeedbackReaction/>);
+  it("should match snapshot", () => {
+    const { asFragment } = render(
+      <FeedbackReaction
+        reactionName="Awesome"
+        reactionImage="awesome_face"
+        reactionAlt="awesome_face"
+      />
+    );
 
-        const titleElement = screen.getByTestId("feedBackReaction-title");
+    expect(asFragment()).toMatchSnapshot();
+  });
 
-        expect(titleElement).toBeInTheDocument();
-    })
+  it("should contain h3 title", () => {
+    render(<FeedbackReaction />);
 
-    it("should render the title", ()=>{
-        render(<FeedbackReaction />);
+    const titleElement = screen.getByTestId("feedBackReaction-title");
 
-        const titleText = screen.getByText("Awesome");
+    expect(titleElement).toBeInTheDocument();
+  });
 
-        expect(titleText).toBeInTheDocument();
-    })
+  it("should render the title", () => {
+    render(<FeedbackReaction reactionName="Awesome" />);
 
-  it('displays an awesome face', () => {
-      render(<FeedbackReaction />);
+    const titleText = screen.getByText("Awesome");
+
+    expect(titleText).toBeInTheDocument();
+  });
+
+  it("displays an awesome face", () => {
+    render(
+      <FeedbackReaction
+        reactionImage="awesome_face"
+        reactionAlt="awesome_face"
+      />
+    );
     const awesomeImage = screen.getByAltText("awesome_face");
     expect(awesomeImage.src).toContain("awesome_face");
-  })
-
-})
+  });
+});

@@ -1,0 +1,13 @@
+.Feedback-reaction-container {
+    width: calc(100% / 4);
+    height: 400px;
+    margin: 0 3rem;
+}
+
+.Feedback-reaction-image {
+    height: 200px;
+    width: 200px;
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+}
