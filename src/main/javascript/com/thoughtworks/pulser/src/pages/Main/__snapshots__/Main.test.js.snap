@@ -16,11 +16,11 @@ exports[`Main Page should match snapshot 1`] = `
     </header>
     <div>
       <div
-        class="Reactions-main-container"
+        class="Reactions-container"
       >
         <div>
           <div
-            class="FeedbackReaction-component"
+            class="Feedback-reaction-component"
           >
             <h3
               data-testid="feedBackReaction-title"
@@ -29,13 +29,14 @@ exports[`Main Page should match snapshot 1`] = `
             </h3>
             <img
               alt="awesome_face"
+              class="Feedback-reaction-image"
               src="awesome_face.png"
             />
           </div>
         </div>
         <div>
           <div
-            class="FeedbackReaction-component"
+            class="Feedback-reaction-component"
           >
             <h3
               data-testid="feedBackReaction-title"
@@ -44,13 +45,14 @@ exports[`Main Page should match snapshot 1`] = `
             </h3>
             <img
               alt="happy_face"
+              class="Feedback-reaction-image"
               src="happy_face.png"
             />
           </div>
         </div>
         <div>
           <div
-            class="FeedbackReaction-component"
+            class="Feedback-reaction-component"
           >
             <h3
               data-testid="feedBackReaction-title"
@@ -59,13 +61,14 @@ exports[`Main Page should match snapshot 1`] = `
             </h3>
             <img
               alt="sad_face"
+              class="Feedback-reaction-image"
               src="sad_face.png"
             />
           </div>
         </div>
         <div>
           <div
-            class="FeedbackReaction-component"
+            class="Feedback-reaction-component"
           >
             <h3
               data-testid="feedBackReaction-title"
@@ -74,6 +77,7 @@ exports[`Main Page should match snapshot 1`] = `
             </h3>
             <img
               alt="angry_face"
+              class="Feedback-reaction-image"
               src="angry_face.png"
             />
           </div>
