@@ -11,9 +11,75 @@ exports[`Main Page should match snapshot 1`] = `
       <h1
         data-testid="main-header"
       >
-         How are you feeling today?  
+         How are you feeling today? 
       </h1>
     </header>
+    <div>
+      <div
+        class="Reactions-main-container"
+      >
+        <div>
+          <div
+            class="FeedbackReaction-component"
+          >
+            <h3
+              data-testid="feedBackReaction-title"
+            >
+               Awesome
+            </h3>
+            <img
+              alt="awesome_face"
+              src="awesome_face.png"
+            />
+          </div>
+        </div>
+        <div>
+          <div
+            class="FeedbackReaction-component"
+          >
+            <h3
+              data-testid="feedBackReaction-title"
+            >
+               Happy
+            </h3>
+            <img
+              alt="happy_face"
+              src="happy_face.png"
+            />
+          </div>
+        </div>
+        <div>
+          <div
+            class="FeedbackReaction-component"
+          >
+            <h3
+              data-testid="feedBackReaction-title"
+            >
+               Sad
+            </h3>
+            <img
+              alt="sad_face"
+              src="sad_face.png"
+            />
+          </div>
+        </div>
+        <div>
+          <div
+            class="FeedbackReaction-component"
+          >
+            <h3
+              data-testid="feedBackReaction-title"
+            >
+               Angry
+            </h3>
+            <img
+              alt="angry_face"
+              src="angry_face.png"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </DocumentFragment>
 `;
