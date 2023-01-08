@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FeedbackMessage component should match snapshot 1`] = `
+<DocumentFragment>
+  <div>
+    <textarea
+      cols="80"
+      data-testid="textarea-field"
+      placeholder="Write here any additional feedback"
+      rows="4"
+    />
+  </div>
+</DocumentFragment>
+`;
