@@ -1,5 +1,4 @@
 import { cleanup, render, screen } from "@testing-library/react";
-import FeedbackReaction from "../FeedbackReaction/index.jsx";
 import Reactions from "./index.jsx";
 
 describe("Reactions Component", () => {

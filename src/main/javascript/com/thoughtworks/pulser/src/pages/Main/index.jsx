@@ -1,3 +1,4 @@
+import FeedbackMessage from "../../components/FeedbackMessage";
 import Reactions from "../../components/Reactions";
 import "././Main.css";
 
@@ -9,6 +10,7 @@ function Main() {
       </header>
       <div>
         <Reactions/>
+        <FeedbackMessage/>
       </div>
     </div>
   );

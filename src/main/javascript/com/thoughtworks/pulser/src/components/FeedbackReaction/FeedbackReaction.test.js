@@ -42,6 +42,7 @@ describe("FeedbackReaction Component", () => {
       />
     );
     const awesomeImage = screen.getByAltText("awesome_face");
+    
     expect(awesomeImage.src).toContain("awesome_face");
   });
 });
