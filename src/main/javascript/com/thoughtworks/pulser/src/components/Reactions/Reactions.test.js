@@ -8,13 +8,25 @@ describe("Reactions Component", () => {
   });
 
   it("should match snapshot", () => {
-    const { asFragment } = render(<Reactions reactions={reactionsArray} />);
+    const onReactionPressMock = jest.fn();
+    const { asFragment } = render(
+      <Reactions
+        reactions={reactionsArray}
+        onReactionPress={onReactionPressMock}
+      />
+    );
 
     expect(asFragment()).toMatchSnapshot();
   });
 
   it("should contain Awesome title and awesome_face image", () => {
-    render(<Reactions reactions={reactionsArray} />);
+    const onReactionPressMock = jest.fn();
+    render(
+      <Reactions
+        reactions={reactionsArray}
+        onReactionPress={onReactionPressMock}
+      />
+    );
 
     const titleText = screen.getByText("Awesome");
     const awesomeImage = screen.getByAltText("awesome_face");
@@ -24,7 +36,14 @@ describe("Reactions Component", () => {
   });
 
   it("should render Happy title and happy_face image", () => {
-    render(<Reactions reactions={reactionsArray} />);
+    const onReactionPressMock = jest.fn();
+
+    render(
+      <Reactions
+        reactions={reactionsArray}
+        onReactionPress={onReactionPressMock}
+      />
+    );
 
     const titleText = screen.getByText("Happy");
     const happyImage = screen.getByAltText("happy_face");
@@ -34,7 +53,14 @@ describe("Reactions Component", () => {
   });
 
   it("should render Sad title and sad_face image", () => {
-    render(<Reactions reactions={reactionsArray} />);
+    const onReactionPressMock = jest.fn();
+
+    render(
+      <Reactions
+        reactions={reactionsArray}
+        onReactionPress={onReactionPressMock}
+      />
+    );
 
     const titleText = screen.getByText("Sad");
     const awesomeImage = screen.getByAltText("sad_face");
@@ -44,7 +70,13 @@ describe("Reactions Component", () => {
   });
 
   it("should render Angry title and angry_face image", () => {
-    render(<Reactions reactions={reactionsArray} />);
+    const onReactionPressMock = jest.fn();
+    render(
+      <Reactions
+        reactions={reactionsArray}
+        onReactionPress={onReactionPressMock}
+      />
+    );
 
     const titleText = screen.getByText("Angry");
     const awesomeImage = screen.getByAltText("angry_face");

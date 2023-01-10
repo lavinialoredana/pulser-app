@@ -5,15 +5,21 @@ const FeedbackReaction = ({
   reactionImage,
   reactionAlt,
   reactionKey,
-  onReactionImageClick,
+  onReactionClick,
+  isReactionPressed,
 }) => {
- 
-  const onClick=(event)=>{
-    onReactionImageClick(reactionKey)
-  }
+  const onClick = (event) => {
+    onReactionClick(isReactionPressed(reactionKey) ? " " : reactionKey )
+    
+    // isReactionPressed(reactionKey)? onReactionClick(""): onReactionClick(reactionKey);
+  };
 
   return (
-    <div className="Feedback-reaction-component">
+    <div
+      className={`Feedback-reaction-component ${
+        isReactionPressed(reactionKey) ? "Is-clicked" : ""
+      } `}
+    >
       <h3 data-testid="feedBackReaction-title"> {reactionName}</h3>
       <img
         src={reactionImage}

@@ -46,7 +46,12 @@ describe("FeedbackMessage component", () => {
     const message = "Thank you!";
     const onChangeMock = jest.fn();
 
-    render(<FeedbackMessage onUserFeedbackChange={onChangeMock} />);
+    render(
+      <FeedbackMessage
+        userFeedback={message}
+        onUserFeedbackChange={onChangeMock}
+      />
+    );
 
     const userInput = screen.getByTestId("textarea-field");
 

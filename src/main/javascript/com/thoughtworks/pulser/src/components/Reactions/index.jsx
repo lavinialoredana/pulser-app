@@ -3,8 +3,7 @@ import FeedbackReaction from "../FeedbackReaction";
 import { reactionsArray } from "../../utils/reactionsUtils";
 import "./Reactions.css";
 
-const Reactions = ({ onReactionChange }) => {
-
+const Reactions = ({ onReactionChange, onReactionPress }) => {
   return (
     <div className="Reactions-container">
       {reactionsArray.map((reaction) => {
@@ -14,8 +13,9 @@ const Reactions = ({ onReactionChange }) => {
               reactionName={reaction.reactionName}
               reactionImage={reaction.reactionImage}
               reactionAlt={reaction.reactionAlt}
-              onReactionImageClick={onReactionChange}
               reactionKey={reaction.key}
+              onReactionClick={onReactionChange}
+              isReactionPressed={onReactionPress}
             />
           </div>
         );

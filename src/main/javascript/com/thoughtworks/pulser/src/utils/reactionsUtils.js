@@ -6,28 +6,24 @@ import angryFace from "../assets/images/angry_face.png";
 export const reactionsArray = [
   {
     key: "awesomeFace_key",
-    isClicked: false,
     reactionName: "Awesome",
     reactionImage: awesomeFace,
     reactionAlt: "awesome_face",
   },
   {
     key: "happyFace_key",
-    isClicked: false,
     reactionName: "Happy",
     reactionImage: happyFace,
     reactionAlt: "happy_face",
   },
   {
     key: "sadFace_key",
-    isClicked: false,
     reactionName: "Sad",
     reactionImage: sadFace,
     reactionAlt: "sad_face",
   },
   {
     key: "angryFace_key",
-    isClicked: false,
     reactionName: "Angry",
     reactionImage: angryFace,
     reactionAlt: "angry_face",

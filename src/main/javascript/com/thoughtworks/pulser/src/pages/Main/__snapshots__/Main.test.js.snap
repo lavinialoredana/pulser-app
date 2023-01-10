@@ -20,7 +20,7 @@ exports[`Main Page should match snapshot 1`] = `
       >
         <div>
           <div
-            class="Feedback-reaction-component"
+            class="Feedback-reaction-component  "
           >
             <h3
               data-testid="feedBackReaction-title"
@@ -36,7 +36,7 @@ exports[`Main Page should match snapshot 1`] = `
         </div>
         <div>
           <div
-            class="Feedback-reaction-component"
+            class="Feedback-reaction-component  "
           >
             <h3
               data-testid="feedBackReaction-title"
@@ -52,7 +52,7 @@ exports[`Main Page should match snapshot 1`] = `
         </div>
         <div>
           <div
-            class="Feedback-reaction-component"
+            class="Feedback-reaction-component  "
           >
             <h3
               data-testid="feedBackReaction-title"
@@ -68,7 +68,7 @@ exports[`Main Page should match snapshot 1`] = `
         </div>
         <div>
           <div
-            class="Feedback-reaction-component"
+            class="Feedback-reaction-component  "
           >
             <h3
               data-testid="feedBackReaction-title"

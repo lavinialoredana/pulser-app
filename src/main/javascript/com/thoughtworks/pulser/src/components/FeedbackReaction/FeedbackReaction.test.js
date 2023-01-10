@@ -8,11 +8,13 @@ describe("FeedbackReaction Component", () => {
   });
 
   it("should match snapshot", () => {
+    const onReactionPressMock = jest.fn();
     const { asFragment } = render(
       <FeedbackReaction
         reactionName="Awesome"
         reactionImage="awesome_face"
         reactionAlt="awesome_face"
+        isReactionPressed={onReactionPressMock}
       />
     );
 
@@ -20,7 +22,9 @@ describe("FeedbackReaction Component", () => {
   });
 
   it("should contain h3 title", () => {
-    render(<FeedbackReaction />);
+        const onReactionPressMock = jest.fn();
+
+    render(<FeedbackReaction isReactionPressed={onReactionPressMock} />);
 
     const titleElement = screen.getByTestId("feedBackReaction-title");
 
@@ -28,7 +32,14 @@ describe("FeedbackReaction Component", () => {
   });
 
   it("should render the title", () => {
-    render(<FeedbackReaction reactionName="Awesome" />);
+    const onReactionPressMock = jest.fn();
+
+    render(
+      <FeedbackReaction
+        reactionName="Awesome"
+        isReactionPressed={onReactionPressMock}
+      />
+    );
 
     const titleText = screen.getByText("Awesome");
 
@@ -36,10 +47,12 @@ describe("FeedbackReaction Component", () => {
   });
 
   it("displays an awesome face", () => {
+    const onReactionPressMock = jest.fn();
     render(
       <FeedbackReaction
         reactionImage="awesome_face"
         reactionAlt="awesome_face"
+        isReactionPressed={onReactionPressMock}
       />
     );
     const awesomeImage = screen.getByAltText("awesome_face");
@@ -50,11 +63,13 @@ describe("FeedbackReaction Component", () => {
   it("should fire onClick correctly", async () => {
     const user = userEvent.setup();
     const onClickMock = jest.fn();
+    const onReactionPressMock = jest.fn();
     render(
       <FeedbackReaction
         reactionImage="awesome_face"
         reactionAlt="awesome_face"
-        onReactionImageClick={onClickMock}
+        onReactionClick={onClickMock}
+        isReactionPressed={onReactionPressMock}
       />
     );
 
@@ -62,5 +77,27 @@ describe("FeedbackReaction Component", () => {
 
     await user.click(awesomeImage);
     expect(onClickMock).toHaveBeenCalledTimes(1);
+  });
+
+  it("should fire isReactionPressed correctly", async () => {
+    const user = userEvent.setup();
+    const onClickMock = jest.fn();
+    const onReactionPressMock = jest.fn();
+    const reactionKey = "awesome_face";
+    render(
+      <FeedbackReaction
+        reactionImage="awesome_face"
+        reactionAlt="awesome_face"
+        reactionKey="awesome_face"
+        onReactionClick={onClickMock}
+        isReactionPressed={onReactionPressMock}
+      />
+    );
+
+    const awesomeImage = screen.getByAltText("awesome_face");
+
+    await user.click(awesomeImage);
+    expect(onReactionPressMock).toHaveBeenCalledTimes(1);
+    expect(onReactionPressMock).toHaveBeenCalledWith(reactionKey);
   });
 });

@@ -9,12 +9,16 @@ function Main() {
     userReaction: "",
   });
 
+  const handleUserReactionChange = (reactionKey) => {
+    setPulserObject({ ...pulserObject, userReaction: reactionKey });
+  };
+
   const handleUserFeedbackChange = (event) => {
     setPulserObject({ ...pulserObject, userMessage: event.target.value });
   };
 
-  const handleUserReactionChange = (reactionKey) => {
-    setPulserObject({ ...pulserObject, userReaction: reactionKey });
+  const isReactionPressed = (reactionKey) => {
+    return reactionKey === pulserObject.userReaction;
   };
 
   return (
@@ -23,7 +27,10 @@ function Main() {
         <h1 data-testid="main-header"> How are you feeling today? </h1>
       </header>
       <div>
-        <Reactions onReactionChange={handleUserReactionChange} />
+        <Reactions
+          onReactionChange={handleUserReactionChange}
+          onReactionPress={isReactionPressed}
+        />
         <FeedbackMessage
           userFeedback={pulserObject.userMessage}
           onUserFeedbackChange={handleUserFeedbackChange}
