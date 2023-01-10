@@ -1,4 +1,5 @@
 import { cleanup, render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import FeedbackReaction from "./index.jsx";
 
 describe("FeedbackReaction Component", () => {
@@ -42,7 +43,24 @@ describe("FeedbackReaction Component", () => {
       />
     );
     const awesomeImage = screen.getByAltText("awesome_face");
-    
+
     expect(awesomeImage.src).toContain("awesome_face");
+  });
+
+  it("should fire onClick correctly", async () => {
+    const user = userEvent.setup();
+    const onClickMock = jest.fn();
+    render(
+      <FeedbackReaction
+        reactionImage="awesome_face"
+        reactionAlt="awesome_face"
+        onReactionImageClick={onClickMock}
+      />
+    );
+
+    const awesomeImage = screen.getByAltText("awesome_face");
+
+    await user.click(awesomeImage);
+    expect(onClickMock).toHaveBeenCalledTimes(1);
   });
 });
