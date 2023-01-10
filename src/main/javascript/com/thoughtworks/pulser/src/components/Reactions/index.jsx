@@ -1,32 +1,20 @@
 import React from "react";
 import FeedbackReaction from "../FeedbackReaction";
+import { reactionsArray } from "../../utils/reactionsUtils";
 import "./Reactions.css";
 
-const Reactions = ({ reactions, setReactions }) => {
-  const handleReactionImageClick = (key) => {
-    const newReactionsArray = reactions.map((reaction) => {
-      // todo: to simplify if else
-      if (reaction.key === key) {
-        reaction.isClicked = !reaction.isClicked;
-      } else {
-        reaction.isClicked = false;
-      }
-      return reaction;
-    });
-
-    setReactions(newReactionsArray);
-  };
+const Reactions = ({ onReactionChange }) => {
 
   return (
     <div className="Reactions-container">
-      {reactions.map((reaction) => {
+      {reactionsArray.map((reaction) => {
         return (
           <div key={reaction.key}>
             <FeedbackReaction
               reactionName={reaction.reactionName}
               reactionImage={reaction.reactionImage}
               reactionAlt={reaction.reactionAlt}
-              onReactionImageClick={handleReactionImageClick}
+              onReactionImageClick={onReactionChange}
               reactionKey={reaction.key}
             />
           </div>

@@ -1,17 +1,21 @@
 import FeedbackMessage from "../../components/FeedbackMessage";
 import Reactions from "../../components/Reactions";
-import { reactionsArray } from "../../utils/reactionsUtils";
 import "././Main.css";
 import { useState } from "react";
 
 function Main() {
-  const [reactions, setReactions] = useState(reactionsArray);
-  const [userFeedback, setUserFeedback]= useState("");
+  const [pulserObject, setPulserObject] = useState({
+    userMessage: "",
+    userReaction: "",
+  });
 
-  const handleUserFeedbackChange= (event) => {
-    setUserFeedback(event.target.value);
+  const handleUserFeedbackChange = (event) => {
+    setPulserObject({ ...pulserObject, userMessage: event.target.value });
   };
- 
+
+  const handleUserReactionChange = (reactionKey) => {
+    setPulserObject({ ...pulserObject, userReaction: reactionKey });
+  };
 
   return (
     <div className="Main">
@@ -19,8 +23,11 @@ function Main() {
         <h1 data-testid="main-header"> How are you feeling today? </h1>
       </header>
       <div>
-        <Reactions reactions={reactions} setReactions={setReactions} />
-        <FeedbackMessage userFeedback={userFeedback} onUserFeedbackChange={handleUserFeedbackChange}/>
+        <Reactions onReactionChange={handleUserReactionChange} />
+        <FeedbackMessage
+          userFeedback={pulserObject.userMessage}
+          onUserFeedbackChange={handleUserFeedbackChange}
+        />
       </div>
     </div>
   );
