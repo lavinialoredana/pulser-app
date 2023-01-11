@@ -2,6 +2,7 @@ import FeedbackMessage from "../../components/FeedbackMessage";
 import Reactions from "../../components/Reactions";
 import "././Main.css";
 import { useState } from "react";
+import Button from "../../components/Button";
 
 function Main() {
   const [pulserObject, setPulserObject] = useState({
@@ -21,6 +22,11 @@ function Main() {
     return reactionKey === pulserObject.userReaction;
   };
 
+
+   const handleButtonClick=()=>{
+    return ""
+   };
+
   return (
     <div className="Main">
       <header className="Main-header">
@@ -35,6 +41,7 @@ function Main() {
           userFeedback={pulserObject.userMessage}
           onUserFeedbackChange={handleUserFeedbackChange}
         />
+        <Button onClickButton={handleButtonClick} buttonName="Submit"/>
       </div>
     </div>
   );

@@ -91,6 +91,13 @@ exports[`Main Page should match snapshot 1`] = `
           rows="4"
         />
       </div>
+      <div>
+        <button
+          data-testid="button"
+        >
+          Submit
+        </button>
+      </div>
     </div>
   </div>
 </DocumentFragment>
