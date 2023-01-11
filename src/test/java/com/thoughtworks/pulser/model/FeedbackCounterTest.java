@@ -25,6 +25,11 @@ public class FeedbackCounterTest {
   }
 
   @Test
+  void itShouldInitialiseReportCounterInZero() {
+    assertEquals(feedbackCounter.getReportCounter(), 0);
+  }
+
+  @Test
   void itShouldIncreaseLikeCounter() {
     assertEquals(feedbackCounter.getLikeCounter(), 0);
     feedbackCounter.increaseLikeCounter();
@@ -44,6 +49,17 @@ public class FeedbackCounterTest {
     assertEquals(feedbackCounter.getDislikeCounter(), 2);
     feedbackCounter.increaseDislikeCounter();
     assertEquals(feedbackCounter.getDislikeCounter(), 3);
+  }
+
+  @Test
+  void itShouldIncreaseReportCounter() {
+    assertEquals(feedbackCounter.getReportCounter(), 0);
+    feedbackCounter.increaseReportCounter();
+    assertEquals(feedbackCounter.getReportCounter(), 1);
+    feedbackCounter.increaseReportCounter();
+    assertEquals(feedbackCounter.getReportCounter(), 2);
+    feedbackCounter.increaseReportCounter();
+    assertEquals(feedbackCounter.getReportCounter(), 3);
   }
 
 }
