@@ -1,10 +1,7 @@
 package com.thoughtworks.pulser.model;
 
 import static org.testng.Assert.*;
-
 import com.thoughtworks.pulser.model.Message.Face;
-import java.time.LocalDateTime;
-import net.bytebuddy.asm.Advice.Local;
 import org.testng.annotations.Test;
 
 public class MessageTest {
@@ -22,5 +19,7 @@ public class MessageTest {
   public void itShouldHaveCreationTimeStamp() {
     assertNotNull(message.creationTimeStamp);
   }
+
+
 
 }

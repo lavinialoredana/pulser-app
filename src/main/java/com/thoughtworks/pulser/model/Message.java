@@ -3,6 +3,14 @@ package com.thoughtworks.pulser.model;
 import java.time.LocalDateTime;
 
 public class Message {
+
+  enum Face {
+    AWESOME,
+    HAPPY,
+    SAD,
+    AWFUL
+  }
+
   private Face face;
   private String body;
   LocalDateTime creationTimeStamp;
@@ -11,13 +19,6 @@ public class Message {
     this.face = face;
     this.body = body;
     this.creationTimeStamp = LocalDateTime.now();
-  }
-
-  public enum Face {
-    AWESOME,
-    HAPPY,
-    SAD,
-    AWFUL
   }
 
   public String getFeedbackMessage() {
