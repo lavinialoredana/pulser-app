@@ -23,6 +23,15 @@ it("should contain button", () => {
     expect(buttonElement).toBeInTheDocument();
   });
 
+  it("should render button name", () => {
+    const buttonName ="Submit"
+  render(<Button buttonName={buttonName}/>);
+
+  const buttonElement = screen.getByTestId("button");
+
+  expect(buttonElement.name).toBe(buttonName);
+});
+
   it("should fire click correctly", async ()=>{
     const user = userEvent.setup();
     const onClickMock =jest.fn();
