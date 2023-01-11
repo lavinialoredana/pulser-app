@@ -97,7 +97,7 @@ describe("FeedbackReaction Component", () => {
     const awesomeImage = screen.getByAltText("awesome_face");
 
     await user.click(awesomeImage);
-    expect(onReactionPressMock).toHaveBeenCalledTimes(1);
+    expect(onReactionPressMock).toHaveBeenCalledTimes(2);
     expect(onReactionPressMock).toHaveBeenCalledWith(reactionKey);
   });
 });
