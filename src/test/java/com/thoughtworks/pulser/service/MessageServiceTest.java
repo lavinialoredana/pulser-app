@@ -57,7 +57,7 @@ public class MessageServiceTest {
     messageService.validateMessage(emptyBodyMessage);
   }
 
-  @Test(expectedExceptions = InputMismatchException.class, expectedExceptionsMessageRegExp = "ERROR: Message body given too long \\(>1400 chars\\)")
+  @Test(expectedExceptions = InputMismatchException.class, expectedExceptionsMessageRegExp = "ERROR: Message body given too long. It should be less than 1400 chars")
   void itShouldThrowsExceptionWhenBodyMessageLengthIsGreaterThan1400Chars() {
     messageService.validateMessage(messageLongBody);
   }
