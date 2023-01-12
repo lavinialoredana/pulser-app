@@ -5,7 +5,7 @@ import "./Reactions.css";
 
 const Reactions = ({ onReactionChange, onReactionPress }) => {
   return (
-    <div className="Reactions-container">
+    <div className="Reactions-container"  data-testid="reactions">
       {reactionsArray.map((reaction) => {
         return (
           <div key={reaction.key}>

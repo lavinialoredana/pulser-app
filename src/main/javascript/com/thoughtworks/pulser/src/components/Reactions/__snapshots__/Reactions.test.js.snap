@@ -4,10 +4,12 @@ exports[`Reactions Component should match snapshot 1`] = `
 <DocumentFragment>
   <div
     class="Reactions-container"
+    data-testid="reactions"
   >
     <div>
       <div
         class="Feedback-reaction-component  "
+        data-testid="feedback-reaction"
       >
         <h3
           data-testid="feedBackReaction-title"
@@ -24,6 +26,7 @@ exports[`Reactions Component should match snapshot 1`] = `
     <div>
       <div
         class="Feedback-reaction-component  "
+        data-testid="feedback-reaction"
       >
         <h3
           data-testid="feedBackReaction-title"
@@ -40,6 +43,7 @@ exports[`Reactions Component should match snapshot 1`] = `
     <div>
       <div
         class="Feedback-reaction-component  "
+        data-testid="feedback-reaction"
       >
         <h3
           data-testid="feedBackReaction-title"
@@ -56,6 +60,7 @@ exports[`Reactions Component should match snapshot 1`] = `
     <div>
       <div
         class="Feedback-reaction-component  "
+        data-testid="feedback-reaction"
       >
         <h3
           data-testid="feedBackReaction-title"

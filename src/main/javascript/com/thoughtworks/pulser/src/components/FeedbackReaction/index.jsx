@@ -17,8 +17,8 @@ const FeedbackReaction = ({
   return (
     <div
       className={`Feedback-reaction-component ${
-        isReactionPressed(reactionKey) ? "Is-clicked" : ""
-      } `}
+        isReactionPressed(reactionKey) ? "Is-clicked" : "" 
+      } `} data-testid="feedback-reaction"
     >
       <h3 data-testid="feedBackReaction-title"> {reactionName}</h3>
       <img

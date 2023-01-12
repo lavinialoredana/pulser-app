@@ -4,6 +4,7 @@ exports[`FeedbackReaction Component should match snapshot 1`] = `
 <DocumentFragment>
   <div
     class="Feedback-reaction-component  "
+    data-testid="feedback-reaction"
   >
     <h3
       data-testid="feedBackReaction-title"
