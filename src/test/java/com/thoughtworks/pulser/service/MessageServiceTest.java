@@ -42,6 +42,11 @@ public class MessageServiceTest {
     assertEquals(messageService.findAllMessages(), List.of(message, message2));
   }
 
+  @Test
+  void itShouldFindMessageById() {
+    assertEquals(messageService.findMessageById(message.getId()), Optional.of(message));
+  }
+
 
 
 }
