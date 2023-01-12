@@ -27,6 +27,10 @@ public class Message {
     this.creationTimeStamp = LocalDateTime.now();
   }
 
+  public String getBody() {
+    return body;
+  }
+
   public ObjectId getId() {
     return id;
   }
