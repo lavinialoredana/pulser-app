@@ -17,7 +17,7 @@ public class MessageService {
     this.messageRepository = messageRepository;
   }
 
-  public Message saveMessage(Message message) throws InputMismatchException {
+  public Message saveMessage(Message message) {
     return messageRepository.save(message);
   }
 
@@ -27,6 +27,14 @@ public class MessageService {
 
   public Optional<Message> findMessageById(ObjectId id) {
     return messageRepository.findById(id);
+  }
+
+  public void validateMessage(Message message) {
+    if(message.getBody() == null) {
+      throw new InputMismatchException("ERROR: Empty message body given");
+    } else if(message.getBody().length() > 1400) {
+      throw new InputMismatchException("ERROR: MessageDTO body given too long (>1400 chars)");
+    }
   }
 
 }
