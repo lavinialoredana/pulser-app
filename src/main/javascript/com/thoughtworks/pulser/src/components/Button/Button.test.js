@@ -43,7 +43,7 @@ describe("Button Component", () => {
   });
 
   it("should display disabled button on render", ()=>{
-    const isDisabledMock = jest.fn(false);
+    const isDisabledMock = jest.fn(true);
     render(<Button isDisabled={isDisabledMock}/>)
 
     const button = screen.getByTestId("button");
@@ -54,7 +54,7 @@ describe("Button Component", () => {
   it("should not call click event", async () => {
     const user = userEvent.setup();
     const onClickMock = jest.fn();
-    const isDisabledMock = jest.fn(false);
+    const isDisabledMock = jest.fn(true);
     render(<Button onClickButton={onClickMock} isDisabled={isDisabledMock}/>);
 
     const button = screen.getByTestId("button");
