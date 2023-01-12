@@ -37,6 +37,11 @@ public class MessageServiceTest {
     assertEquals(messageService.saveMessage(message), message);
   }
 
+  @Test
+  void itShouldFindAllMessages() {
+    assertEquals(messageService.findAllMessages(), List.of(message, message2));
+  }
+
 
 
 }
