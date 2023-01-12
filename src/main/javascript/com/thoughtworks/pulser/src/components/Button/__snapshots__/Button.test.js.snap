@@ -5,6 +5,7 @@ exports[`Button Component should match snapshot 1`] = `
   <div>
     <button
       data-testid="button"
+      disabled=""
     />
   </div>
 </DocumentFragment>

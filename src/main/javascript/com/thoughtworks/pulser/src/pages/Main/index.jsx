@@ -27,6 +27,10 @@ function Main() {
     return ""
    };
 
+   const handleDisabledButton=()=>{
+    return false;
+   }
+
   return (
     <div className="Main">
       <header className="Main-header">
@@ -41,7 +45,7 @@ function Main() {
           userFeedback={pulserObject.userMessage}
           onUserFeedbackChange={handleUserFeedbackChange}
         />
-        <Button onClickButton={handleButtonClick} buttonName="Submit"/>
+        <Button onClickButton={handleButtonClick} buttonName="Submit" isDisabled={handleDisabledButton}/>
       </div>
     </div>
   );
