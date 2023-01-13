@@ -20,7 +20,7 @@ public class Message {
     this.creationTimeStamp = LocalDateTime.now();
   }
 
-  public String getUserMessage() { return inputBodyMessage; }
+  public String getInputBodyMessage() { return inputBodyMessage; }
 
   public ObjectId getId() {
     return id;
