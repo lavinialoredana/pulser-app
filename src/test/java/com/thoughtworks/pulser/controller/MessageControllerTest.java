@@ -45,5 +45,12 @@ public class MessageControllerTest extends AbstractTestNGSpringContextTests {
         .andExpect(MockMvcResultMatchers.status().is(200));
   }
 
+  @Test
+  void itShouldReturnOkWhenDeleteAllEndpointIsCalled() throws Exception{
+    mockMvc.perform(MockMvcRequestBuilders.delete("/messages/delete/all"))
+        .andExpect(MockMvcResultMatchers.status().is(200));
+  }
+
+
 
 }
