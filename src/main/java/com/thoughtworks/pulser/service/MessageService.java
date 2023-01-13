@@ -29,6 +29,14 @@ public class MessageService {
     return messageRepository.findById(id);
   }
 
+  public void deleteAllMessages() {
+    messageRepository.deleteAll();
+  }
+
+  public void deleteMessageById(ObjectId id) {
+    messageRepository.deleteById(id);
+  }
+
   public void validateMessage(Message message) {
     if(message.getInputBodyMessage() == null) {
       throw new InputMismatchException("ERROR: Empty message body given");

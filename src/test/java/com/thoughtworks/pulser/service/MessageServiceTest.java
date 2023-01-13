@@ -1,6 +1,7 @@
 package com.thoughtworks.pulser.service;
 
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import static org.testng.Assert.*;
 
@@ -9,6 +10,7 @@ import com.thoughtworks.pulser.repository.MessageRepository;
 import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Optional;
+import org.mockito.Mockito;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -49,6 +51,18 @@ public class MessageServiceTest {
   @Test
   void itShouldFindMessageById() {
     assertEquals(messageService.findMessageById(message.getId()), Optional.of(message));
+  }
+
+  @Test
+  void itShouldDeleteAllMessages() {
+    messageService.deleteAllMessages();
+    Mockito.verify(messageRepository).deleteAll();
+  }
+
+  @Test
+  void itShouldDeleteMessageById() {
+    messageService.deleteMessageById(message.getId());
+    Mockito.verify(messageRepository).deleteById(message.getId());
   }
 
   @Test(expectedExceptions = InputMismatchException.class, expectedExceptionsMessageRegExp = "ERROR: Empty message body given")
