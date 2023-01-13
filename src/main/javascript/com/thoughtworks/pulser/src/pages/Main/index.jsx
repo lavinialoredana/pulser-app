@@ -5,9 +5,10 @@ import { useState } from "react";
 import Button from "../../components/Button";
 
 function Main() {
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [pulserObject, setPulserObject] = useState({
-    userMessage: "",
     userReaction: "",
+    userMessage: "",
   });
 
   const handleUserReactionChange = (reactionKey) => {
@@ -22,14 +23,50 @@ function Main() {
     return reactionKey === pulserObject.userReaction;
   };
 
+  const handleButtonClick = async () => {
+    setIsSubmitting(true);
 
-   const handleButtonClick=()=>{
-    return ""
-   };
+    await fetch("https://reqbin.com/echo/post/json", {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        face: pulserObject.userReaction,
+        inputBodyMessage: pulserObject.userMessage,
+      }),
+    })
+      .then((response) => {
+        if (response.status === 200) {
+          return response.json();
+        }
+        throw new Error(response.status);
+      })
+      .then((responseJson) => {
+        console.log("My POST", JSON.stringify(responseJson));
+        setPulserObject({
+          userReaction: "",
+          userMessage: "",
+        });
+      })
+      .catch((error) => {
+        alert("Something went wrong. Try again later");
+        console.log("Error fetching data", error);
+      });
 
-   const handleDisabledButton=()=>{
+    setIsSubmitting(false);
+  };
+
+  const handleDisabledState = () => {
+    if (pulserObject.userMessage === "" || pulserObject.userReaction === "") {
+      return true;
+    }
+    if (isSubmitting) {
+      return true;
+    }
     return false;
-   }
+  };
 
   return (
     <div className="Main">
@@ -45,7 +82,11 @@ function Main() {
           userFeedback={pulserObject.userMessage}
           onUserFeedbackChange={handleUserFeedbackChange}
         />
-        <Button onClickButton={handleButtonClick} buttonName="Submit" isDisabled={handleDisabledButton}/>
+        <Button
+          onClickButton={handleButtonClick}
+          buttonName="Submit"
+          isDisabled={handleDisabledState}
+        />
       </div>
     </div>
   );

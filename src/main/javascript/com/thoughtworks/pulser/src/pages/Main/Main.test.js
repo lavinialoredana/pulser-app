@@ -1,4 +1,5 @@
 import { cleanup, render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import Main from "./index.jsx";
 
 describe("Main Page structure", () => {
@@ -34,5 +35,46 @@ describe("Main Page structure", () => {
     const headerText = screen.getByText("How are you feeling today?");
 
     expect(headerText).toBeInTheDocument();
+  });
+});
+
+describe("Main Page full user flow", () => {
+  afterEach(() => {
+    cleanup();
+  });
+
+  it("should match snapshot", () => {
+    const { asFragment } = render(<Main />);
+
+    expect(asFragment()).toMatchSnapshot();
+  });
+
+  it("should send", async () => {
+    const user = userEvent.setup();
+    const mockedFetch = jest.fn(() => {
+      return Promise.resolve({
+        status: 200,
+        json: () => Promise.resolve({ success: "OK" }),
+      });
+    });
+
+    render(<Main />);
+
+    const awesomeImage = screen.getByAltText("awesome_face");
+    await user.click(awesomeImage);
+
+    const message = "Thank you!";
+    const textArea = screen.getByTestId("textarea-field");
+    await user.type(textArea, message);
+
+    jest.spyOn(global, "fetch").mockImplementation(mockedFetch);
+
+    const submitButton = screen.getByTestId("button");
+    await user.click(submitButton);
+
+    expect(mockedFetch).toHaveBeenCalledTimes(1);
+    // expect(mockedFetch).toHaveBeenCalledWith(
+    //   "https://reqbin.com/echo/post/json"
+    // );
   });
 });
