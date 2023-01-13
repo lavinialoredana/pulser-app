@@ -7,26 +7,26 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "messages")
 public class Message {
-  
+
   @Id
   private ObjectId id;
   private String face;
-  private String body;
+  private String inputBodyMessage;
   LocalDateTime creationTimeStamp;
 
-  public Message(String face, String body) {
+  public Message(String face, String inputBodyMessage) {
     this.face = face;
-    this.body = body;
+    this.inputBodyMessage = inputBodyMessage;
     this.creationTimeStamp = LocalDateTime.now();
   }
 
-  public String getUserMessage() { return body; }
+  public String getUserMessage() { return inputBodyMessage; }
 
   public ObjectId getId() {
     return id;
   }
 
   public String getFeedbackMessage() {
-    return face + " " + body;
+    return face + " " + inputBodyMessage;
   }
 }

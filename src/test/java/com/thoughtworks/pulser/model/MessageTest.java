@@ -6,8 +6,8 @@ import org.testng.annotations.Test;
 public class MessageTest {
 
   private String face = "AWESOME";
-  private String body = "This is a COMPLETE feedback message";
-  Message message = new Message(face, body);
+  private String inputBodyMessage = "This is a COMPLETE feedback message";
+  Message message = new Message(face, inputBodyMessage);
 
   @Test
   public void itShouldHaveFaceAndBody() {
