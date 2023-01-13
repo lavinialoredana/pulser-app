@@ -33,6 +33,11 @@ public class MessageControllerTest extends AbstractTestNGSpringContextTests {
         .andExpect(MockMvcResultMatchers.status().is(200));
   }
 
+  @Test
+  void itShouldReturnOkWhenGetAllEndpointIsCalled() throws Exception{
+    mockMvc.perform(MockMvcRequestBuilders.get("/messages/all"))
+        .andExpect(MockMvcResultMatchers.status().is(200));
+  }
 
 
 

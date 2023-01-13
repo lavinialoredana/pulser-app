@@ -43,5 +43,10 @@ public class MessageController {
     return new ResponseEntity<>(savedMessage, HttpStatusCode.valueOf(200));
   }
 
+  @GetMapping(value = "/all", produces = MediaType.APPLICATION_JSON_VALUE)
+  public @ResponseBody List<Message> findAllMessages() {
+    return messageService.findAllMessages();
+  }
+
 
 }
