@@ -7,29 +7,20 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "messages")
 public class Message {
-
-  public enum Face {
-    AWESOME,
-    HAPPY,
-    SAD,
-    AWFUL
-  }
-
+  
   @Id
   private ObjectId id;
-  private Face face;
+  private String face;
   private String body;
   LocalDateTime creationTimeStamp;
 
-  public Message(Face face, String body) {
+  public Message(String face, String body) {
     this.face = face;
     this.body = body;
     this.creationTimeStamp = LocalDateTime.now();
   }
 
-  public String getBody() {
-    return body;
-  }
+  public String getUserMessage() { return body; }
 
   public ObjectId getId() {
     return id;
