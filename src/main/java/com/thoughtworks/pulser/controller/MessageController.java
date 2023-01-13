@@ -48,5 +48,10 @@ public class MessageController {
     return messageService.findAllMessages();
   }
 
+  @GetMapping(value = "/message/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+  public @ResponseBody Optional<Message> findMessage(@PathVariable String id) {
+    return messageService.findMessageById(new ObjectId(id));
+  }
+
 
 }

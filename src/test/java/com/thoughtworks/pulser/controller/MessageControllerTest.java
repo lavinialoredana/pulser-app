@@ -39,6 +39,11 @@ public class MessageControllerTest extends AbstractTestNGSpringContextTests {
         .andExpect(MockMvcResultMatchers.status().is(200));
   }
 
+  @Test
+  void itShouldReturnOkWhenGetByIdEndpointIsCalled() throws Exception{
+    mockMvc.perform(MockMvcRequestBuilders.get("/messages/message/63c13ed223b39f48a6b5f024"))
+        .andExpect(MockMvcResultMatchers.status().is(200));
+  }
 
 
 }
