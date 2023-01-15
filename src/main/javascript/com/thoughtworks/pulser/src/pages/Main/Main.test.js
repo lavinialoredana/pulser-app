@@ -19,7 +19,8 @@ describe("Main Page structure", () => {
     const mainHeaderElement = screen.getByTestId("main-header");
     const feedbackMessageComponent = screen.getByTestId("textarea-field");
     const reactionsComponent = screen.getByTestId("reactions");
-    const feedbackReactionComponent = screen.getAllByTestId("feedback-reaction");
+    const feedbackReactionComponent =
+      screen.getAllByTestId("feedback-reaction");
     const buttonComponent = screen.getByTestId("button");
 
     expect(mainHeaderElement).toBeInTheDocument();
@@ -40,6 +41,7 @@ describe("Main Page structure", () => {
 
 describe("Main Page full user flow", () => {
   afterEach(() => {
+    jest.restoreAllMocks();
     cleanup();
   });
 
@@ -60,6 +62,7 @@ describe("Main Page full user flow", () => {
 
     render(<Main />);
 
+    const faceKey = "awesomeFace_key";
     const awesomeImage = screen.getByAltText("awesome_face");
     await user.click(awesomeImage);
 
@@ -73,8 +76,18 @@ describe("Main Page full user flow", () => {
     await user.click(submitButton);
 
     expect(mockedFetch).toHaveBeenCalledTimes(1);
-    // expect(mockedFetch).toHaveBeenCalledWith(
-    //   "https://reqbin.com/echo/post/json"
-    // );
+    expect(mockedFetch).toHaveBeenCalledWith(
+      "https://reqbin.com/echo/post/json",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          face: faceKey,
+          inputBodyMessage: message,
+        }),
+      }
+    );
   });
 });

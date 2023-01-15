@@ -26,34 +26,35 @@ function Main() {
   const handleButtonClick = async () => {
     setIsSubmitting(true);
 
-    await fetch("https://reqbin.com/echo/post/json", {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        face: pulserObject.userReaction,
-        inputBodyMessage: pulserObject.userMessage,
-      }),
-    })
-      .then((response) => {
-        if (response.status === 200) {
-          return response.json();
-        }
-        throw new Error(response.status);
-      })
-      .then((responseJson) => {
-        console.log("My POST", JSON.stringify(responseJson));
+    try {
+      const response = await fetch("https://reqbin.com/echo/post/json", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          // expected POST request payload goes here
+          face: pulserObject.userReaction,
+          inputBodyMessage: pulserObject.userMessage,
+        }),
+      });
+      console.log("RESPONSE STATUS", response.status)
+      // logic when the fetch is successful
+      if (response.status === 200) {
         setPulserObject({
           userReaction: "",
           userMessage: "",
         });
-      })
-      .catch((error) => {
-        alert("Something went wrong. Try again later");
-        console.log("Error fetching data", error);
-      });
+
+        // parsed response after the fetch
+        const data = await response.json();
+        console.log("My POST", data);
+        console.log("response before json", response)
+      }
+    } catch (error) {
+      console.log(error);
+      throw new Error(error);
+    }
 
     setIsSubmitting(false);
   };
