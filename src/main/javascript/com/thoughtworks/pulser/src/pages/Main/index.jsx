@@ -49,7 +49,6 @@ function Main() {
         // parsed response after the fetch
         const data = await response.json();
         console.log("My POST", data);
-        console.log("response before json", response)
       }
     } catch (error) {
       console.log(error);
