@@ -13,7 +13,7 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.testng.annotations.Test;
 
 @WebMvcTest(MessageController.class)
-public class MessageControllerTest extends AbstractTestNGSpringContextTests {
+public class MessageControllerTestIT extends AbstractTestNGSpringContextTests {
 
   @Autowired
   private MockMvc mockMvc;
