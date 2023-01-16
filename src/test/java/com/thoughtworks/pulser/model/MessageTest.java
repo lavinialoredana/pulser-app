@@ -6,8 +6,8 @@ import org.testng.annotations.Test;
 public class MessageTest {
 
   private String face = "AWESOME";
-  private String inputBodyMessage = "This is a COMPLETE feedback message";
-  Message message = new Message(face, inputBodyMessage);
+  private String body = "This is a COMPLETE feedback message";
+  Message message = new Message(face, body);
 
   @Test
   public void itShouldHaveFaceAndBody() {
@@ -18,7 +18,6 @@ public class MessageTest {
   public void itShouldHaveCreationTimeStamp() {
     assertNotNull(message.creationTimeStamp);
   }
-
 
 
 }

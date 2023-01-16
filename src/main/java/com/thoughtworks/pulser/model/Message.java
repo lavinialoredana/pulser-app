@@ -11,22 +11,22 @@ public class Message {
   @Id
   private ObjectId id;
   private String face;
-  private String inputBodyMessage;
+  private String body;
   LocalDateTime creationTimeStamp;
 
-  public Message(String face, String inputBodyMessage) {
+  public Message(String face, String body) {
     this.face = face;
-    this.inputBodyMessage = inputBodyMessage;
+    this.body = body;
     this.creationTimeStamp = LocalDateTime.now();
   }
 
-  public String getInputBodyMessage() { return inputBodyMessage; }
+  public String getBody() { return body; }
 
   public ObjectId getId() {
     return id;
   }
 
   public String getFeedbackMessage() {
-    return face + " " + inputBodyMessage;
+    return face + " " + body;
   }
 }
