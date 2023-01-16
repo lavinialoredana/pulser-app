@@ -5,7 +5,6 @@ import com.thoughtworks.pulser.repository.MessageRepository;
 import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Optional;
-import org.bson.types.ObjectId;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -25,7 +24,7 @@ public class MessageService {
     return messageRepository.findAll();
   }
 
-  public Optional<Message> findMessageById(ObjectId id) {
+  public Optional<Message> findMessageById(String id) {
     return messageRepository.findById(id);
   }
 
@@ -33,7 +32,7 @@ public class MessageService {
     messageRepository.deleteAll();
   }
 
-  public void deleteMessageById(ObjectId id) {
+  public void deleteMessageById(String id) {
     messageRepository.deleteById(id);
   }
 
