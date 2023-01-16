@@ -58,5 +58,9 @@ public class MessageController {
     messageService.deleteAllMessages();
   }
 
+  @RequestMapping(value = "/delete/{id}", method = RequestMethod.DELETE)
+  public void deleteMessageById(@PathVariable String id) {
+    messageRepository.deleteById(new ObjectId(id));
+  }
 
 }

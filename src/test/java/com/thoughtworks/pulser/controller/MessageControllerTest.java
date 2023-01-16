@@ -51,6 +51,12 @@ public class MessageControllerTest extends AbstractTestNGSpringContextTests {
         .andExpect(MockMvcResultMatchers.status().is(200));
   }
 
+  @Test
+  void itShouldReturnOkWhenDeleteByIdEndpointIsCalled() throws Exception{
+    mockMvc.perform(MockMvcRequestBuilders.delete("/messages/delete/63c1378823b39f48a6b5f01d"))
+        .andExpect(MockMvcResultMatchers.status().is(200));
+  }
+
 
 
 }
