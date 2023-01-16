@@ -2,6 +2,9 @@ package com.thoughtworks.pulser.model;
 
 public class FeedbackCounter {
 
+  //TODO @Rebeca: This class is probably not needed
+  //TODO @Rebeca: No need of these counters to be long, just a plain int would do the trick
+
   private long likeCounter;
   private long dislikeCounter;
   private long reportCounter;

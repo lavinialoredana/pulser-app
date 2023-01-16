@@ -27,13 +27,19 @@ public class MessageController {
   private final MessageRepository messageRepository;
   private final MessageService messageService;
 
+  //TODO @Rebeca: Lombok library can save you from manually creating constructors
+  //TODO @Rebeca: A controller does never know about repositories, only about services.
+  // Remove any repo reference from this class (of course doing TDD)
   public MessageController(MessageRepository messageRepository, MessageService messageService) {
     this.messageRepository = messageRepository;
     this.messageService = messageService;
   }
 
+  //TODO @Rebeca: Review the naming: createMessage is a more clear name for this endpoint.
+  // Also, newMessage is a weaker name than just message. Review naming in general
   @PostMapping(value = "/message", produces = MediaType.APPLICATION_JSON_VALUE)
   public @ResponseBody ResponseEntity<Message> addNewMessage(@RequestBody Message newMessage) {
+    //TODO @Rebeca: I don't think there is a need of try-catching here
     Message savedMessage;
     try {
       savedMessage = messageService.saveMessage(newMessage);
@@ -53,6 +59,7 @@ public class MessageController {
     return messageService.findMessageById(new ObjectId(id));
   }
 
+  //TODO @Rebeca: deleteAllMessageS
   @RequestMapping(value = "/delete/all", method = RequestMethod.DELETE)
   public void deleteAllMessage() {
     messageService.deleteAllMessages();

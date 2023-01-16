@@ -18,6 +18,8 @@ public class MessageControllerTestIT extends AbstractTestNGSpringContextTests {
   @Autowired
   private MockMvc mockMvc;
 
+  //TODO @Rebeca: You are not using these classes, which means they have no point in this integration test.
+  //Don't forget the third step of red-green-refactor: refactoring also means reviewing the code to delete unused elements
   @MockBean
   private MessageService messageService;
 
@@ -26,6 +28,7 @@ public class MessageControllerTestIT extends AbstractTestNGSpringContextTests {
 
   @Test
   void itShouldReturnOkWhenPostEndpointIsCalled() throws Exception{
+    //TODO @Rebeca: inputBodyMessage -> body
     mockMvc.perform(MockMvcRequestBuilders.post("/messages/message").contentType(MediaType.APPLICATION_JSON_VALUE).content("{\n"
             + "    \"face\": \"AWESOME\",\n"
             + "    \"inputBodyMessage\": \"this is my fifth test message in my new database\"\n"

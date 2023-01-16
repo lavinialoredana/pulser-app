@@ -9,10 +9,12 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Message {
 
   @Id
-  private ObjectId id;
-  private String face;
+  private ObjectId id; //TODO @Rebeca: Just a String would do the trick instead of ObjectId
+  private String face; //TODO @Rebeca: Consider using an enum here so you can have full control of what goes into a "face"
   private String body;
-  LocalDateTime creationTimeStamp;
+  LocalDateTime creationTimeStamp; //TODO @Rebeca: createdDate is more typical
+
+  //TODO @Rebeca: You are lacking the like, dislike and report counters here
 
   public Message(String face, String body) {
     this.face = face;

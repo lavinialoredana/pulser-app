@@ -37,6 +37,7 @@ public class MessageService {
     messageRepository.deleteById(id);
   }
 
+  //TODO @Rebeca: This method means the service needs to know which message is valid. Remember the SRP from SOLID...
   public void validateMessage(Message message) {
     if(message.getBody() == null) {
       throw new InputMismatchException("ERROR: Empty message body given");

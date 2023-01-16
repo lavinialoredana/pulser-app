@@ -44,6 +44,8 @@ public class MessageServiceTest {
   @Test
   void itShouldDeleteAllMessages() {
     messageService.deleteAllMessages();
+
+    //TODO @Rebeca: All this class is a truly solid test, nice one! Just import Mockito so you don't have to call Mockito.<something> in the whole test
     Mockito.verify(messageRepository).deleteAll();
   }
 
