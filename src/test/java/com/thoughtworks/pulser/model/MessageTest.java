@@ -1,11 +1,13 @@
 package com.thoughtworks.pulser.model;
 
 import static org.testng.Assert.*;
+
+import com.thoughtworks.pulser.model.Message.Face;
 import org.testng.annotations.Test;
 
 public class MessageTest {
 
-  private String face = "AWESOME";
+  private Message.Face face = Face.AWESOME;
   private String body = "This is a COMPLETE feedback message";
   Message message = new Message(face, body);
 
@@ -16,8 +18,7 @@ public class MessageTest {
 
   @Test
   public void itShouldHaveCreationTimeStamp() {
-    assertNotNull(message.creationTimeStamp);
+    assertNotNull(message.createDate);
   }
-
 
 }
