@@ -38,9 +38,9 @@ public class MessageService {
   }
 
   public void validateMessage(Message message) {
-    if(message.getInputBodyMessage() == null) {
+    if(message.getBody() == null) {
       throw new InputMismatchException("ERROR: Empty message body given");
-    } else if(message.getInputBodyMessage().length() > 1400) {
+    } else if(message.getBody().length() > 1400) {
       throw new InputMismatchException("ERROR: Message body given too long. It should be less than 1400 chars");
     }
   }
