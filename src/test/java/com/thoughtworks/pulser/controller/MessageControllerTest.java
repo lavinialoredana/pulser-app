@@ -37,7 +37,7 @@ public class MessageControllerTest {
   }
 
   @Test
-  void itShouldReturnMessageById() {
+  void itShouldReturnMessageWhenIdGiven() {
     when(messageService.findMessageById(message.getId())).thenReturn(Optional.of(message));
 
     assertEquals(messageController.findMessage(message.getId()), Optional.of(message));
@@ -51,7 +51,7 @@ public class MessageControllerTest {
   }
 
   @Test
-  void itShouldDeleteMessageById() {
+  void itShouldDeleteMessageWhenIdGiven() {
     messageService.deleteMessageById(message.getId());
 
     verify(messageService).deleteMessageById(message.getId());
