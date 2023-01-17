@@ -32,6 +32,20 @@ public class Message {
     this.report = getReport();
   }
 
+  public String getId() {
+    return id;
+  }
+
+  public Face getFace() {
+    return face;
+  }
+
+  public String getBody() { return body; }
+
+  public LocalDateTime getCreateDate() {
+    return createDate;
+  }
+
   public int getLike() {
     return like;
   }
@@ -43,17 +57,6 @@ public class Message {
   public int getReport() {
     return report;
   }
-
-  public String getBody() { return body; }
-
-  public Face getFace() {
-    return face;
-  }
-
-  public String getId() {
-    return id;
-  }
-
 
   public void validateMessage(Message message) {
     if(message.getBody() == null) {
