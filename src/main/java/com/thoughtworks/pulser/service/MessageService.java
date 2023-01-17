@@ -2,7 +2,6 @@ package com.thoughtworks.pulser.service;
 
 import com.thoughtworks.pulser.model.Message;
 import com.thoughtworks.pulser.repository.MessageRepository;
-import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.stereotype.Service;
@@ -36,13 +35,5 @@ public class MessageService {
     messageRepository.deleteById(id);
   }
 
-  //TODO @Rebeca: This method means the service needs to know which message is valid. Remember the SRP from SOLID...
-  public void validateMessage(Message message) {
-    if(message.getBody() == null) {
-      throw new InputMismatchException("ERROR: Empty message body given");
-    } else if(message.getBody().length() > 1400) {
-      throw new InputMismatchException("ERROR: Message body given too long. It should be less than 1400 chars");
-    }
-  }
 
 }
