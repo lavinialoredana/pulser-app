@@ -35,7 +35,7 @@ function Main() {
         body: JSON.stringify({
           // expected POST request payload goes here
           face: pulserObject.userReaction,
-          inputBodyMessage: pulserObject.userMessage,
+          body: pulserObject.userMessage,
         }),
       });
       console.log("RESPONSE STATUS", response.status)
@@ -69,7 +69,7 @@ function Main() {
   };
 
   return (
-    <div className="Main">
+    <div className="Main" data-testid = "main-page">
       <header className="Main-header">
         <h1 data-testid="main-header"> How are you feeling today? </h1>
       </header>

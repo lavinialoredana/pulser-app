@@ -5,25 +5,25 @@ import angryFace from "../assets/images/angry_face.png";
 
 export const reactionsArray = [
   {
-    key: "awesomeFace_key",
+    key: "AWESOME",
     reactionName: "Awesome",
     reactionImage: awesomeFace,
     reactionAlt: "awesome_face",
   },
   {
-    key: "happyFace_key",
+    key: "HAPPY",
     reactionName: "Happy",
     reactionImage: happyFace,
     reactionAlt: "happy_face",
   },
   {
-    key: "sadFace_key",
+    key: "SAD",
     reactionName: "Sad",
     reactionImage: sadFace,
     reactionAlt: "sad_face",
   },
   {
-    key: "angryFace_key",
+    key: "ANGRY",
     reactionName: "Angry",
     reactionImage: angryFace,
     reactionAlt: "angry_face",

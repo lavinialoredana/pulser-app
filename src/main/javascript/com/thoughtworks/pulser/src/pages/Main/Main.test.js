@@ -62,7 +62,7 @@ describe("Main Page full user flow", () => {
 
     render(<Main />);
 
-    const faceKey = "awesomeFace_key";
+    const faceKey = "AWESOME";
     const awesomeImage = screen.getByAltText("awesome_face");
     await user.click(awesomeImage);
 
@@ -85,9 +85,13 @@ describe("Main Page full user flow", () => {
         },
         body: JSON.stringify({
           face: faceKey,
-          inputBodyMessage: message,
+          body: message,
         }),
       }
     );
   });
 });
+
+describe("Router testing", ()=>{
+  
+})
