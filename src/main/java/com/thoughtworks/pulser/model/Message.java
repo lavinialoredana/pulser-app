@@ -1,6 +1,7 @@
 package com.thoughtworks.pulser.model;
 
 import java.time.LocalDateTime;
+import java.util.InputMismatchException;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -51,6 +52,15 @@ public class Message {
 
   public String getId() {
     return id;
+  }
+
+
+  public void validateMessage(Message message) {
+    if(message.getBody() == null) {
+      throw new InputMismatchException("ERROR: Empty message body given");
+    } else if(message.getBody().length() > 1400) {
+      throw new InputMismatchException("ERROR: Message body given too long. It should be less than 1400 chars");
+    }
   }
 
 }
