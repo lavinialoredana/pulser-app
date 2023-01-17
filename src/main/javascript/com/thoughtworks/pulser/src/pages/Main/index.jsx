@@ -3,6 +3,7 @@ import Reactions from "../../components/Reactions";
 import "././Main.css";
 import { useState } from "react";
 import Button from "../../components/Button";
+import { useNavigate } from "react-router-dom";
 
 function Main() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -22,6 +23,8 @@ function Main() {
   const isReactionPressed = (reactionKey) => {
     return reactionKey === pulserObject.userReaction;
   };
+
+ let navigate = useNavigate();
 
   const handleButtonClick = async () => {
     setIsSubmitting(true);
@@ -44,7 +47,8 @@ function Main() {
         setPulserObject({
           userReaction: "",
           userMessage: "",
-        });
+        })
+         navigate("/pulserfeed/messages");
 
         // parsed response after the fetch
         const data = await response.json();
@@ -56,6 +60,7 @@ function Main() {
     }
 
     setIsSubmitting(false);
+   
   };
 
   const handleDisabledState = () => {

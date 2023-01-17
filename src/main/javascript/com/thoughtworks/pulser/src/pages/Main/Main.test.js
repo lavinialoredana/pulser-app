@@ -1,6 +1,9 @@
 import { cleanup, render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+import { BrowserRouter } from "react-router-dom";
 import Main from "./index.jsx";
+import * as router from "react-router";
+
 
 describe("Main Page structure", () => {
   afterEach(() => {
@@ -8,13 +11,13 @@ describe("Main Page structure", () => {
   });
 
   it("should match snapshot", () => {
-    const { asFragment } = render(<Main />);
+    const { asFragment } = render(<Main />, { wrapper: BrowserRouter });
 
     expect(asFragment()).toMatchSnapshot();
   });
 
   it("should render essential components", () => {
-    render(<Main />);
+    render(<Main />, { wrapper: BrowserRouter });
 
     const mainHeaderElement = screen.getByTestId("main-header");
     const feedbackMessageComponent = screen.getByTestId("textarea-field");
@@ -31,7 +34,7 @@ describe("Main Page structure", () => {
   });
 
   it("should render the title", () => {
-    render(<Main />);
+    render(<Main />, { wrapper: BrowserRouter });
 
     const headerText = screen.getByText("How are you feeling today?");
 
@@ -46,7 +49,7 @@ describe("Main Page full user flow", () => {
   });
 
   it("should match snapshot", () => {
-    const { asFragment } = render(<Main />);
+    const { asFragment } = render(<Main />, { wrapper: BrowserRouter });
 
     expect(asFragment()).toMatchSnapshot();
   });
@@ -60,7 +63,7 @@ describe("Main Page full user flow", () => {
       });
     });
 
-    render(<Main />);
+    render(<Main />, { wrapper: BrowserRouter });
 
     const faceKey = "AWESOME";
     const awesomeImage = screen.getByAltText("awesome_face");
@@ -92,6 +95,46 @@ describe("Main Page full user flow", () => {
   });
 });
 
-describe("Router testing", ()=>{
-  
-})
+const navigateMock = jest.fn();
+
+describe("Router testing", () => {
+  beforeEach(() => {
+    jest.spyOn(router, "useNavigate").mockImplementation(() => navigateMock);
+  });
+  afterEach(() => {
+    cleanup();
+  });
+
+  it("should match snapshot", () => {
+    const { asFragment } = render(<Main />, { wrapper: BrowserRouter });
+
+    expect(asFragment()).toMatchSnapshot();
+  });
+  it("should call navigate on submit button", async () => {
+    const user = userEvent.setup();
+    const mockedFetch = jest.fn(() => {
+      return Promise.resolve({
+        status: 200,
+        json: () => Promise.resolve({ success: "OK" }),
+      });
+    });
+
+    render(<Main />, { wrapper: BrowserRouter });
+
+    const awesomeImage = screen.getByAltText("awesome_face");
+    await user.click(awesomeImage);
+
+    const message = "Thank you!";
+    const textArea = screen.getByTestId("textarea-field");
+    await user.type(textArea, message);
+
+    jest.spyOn(global, "fetch").mockImplementation(mockedFetch);
+
+    const mockedPath = "/pulserfeed/messages";
+
+    const submitButton = screen.getByTestId("button");
+    await user.click(submitButton);
+
+    expect(navigateMock).toHaveBeenCalledWith(mockedPath);
+  });
+});
