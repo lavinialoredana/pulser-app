@@ -22,7 +22,6 @@ public class MessageServiceTest {
   @Test
   void itShouldSaveMessage() {
     when(messageRepository.save(message)).thenReturn(message);
-    when(messageRepository.save(message2)).thenReturn(message2);
 
     assertEquals(messageService.saveMessage(message), message);
   }
