@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @AllArgsConstructor
 @RestController
-@RequestMapping("/messages")
+@RequestMapping("/pulserfeed")
 public class MessageController {
 
   private final MessageService messageService;
@@ -29,7 +29,7 @@ public class MessageController {
     return new ResponseEntity<>(messageService.saveMessage(message), HttpStatusCode.valueOf(200));
   }
 
-  @GetMapping(value = "/all", produces = MediaType.APPLICATION_JSON_VALUE)
+  @GetMapping(value = "/messages", produces = MediaType.APPLICATION_JSON_VALUE)
   public @ResponseBody List<Message> findAllMessages() {
     return messageService.findAllMessages();
   }
@@ -39,7 +39,7 @@ public class MessageController {
     return messageService.findMessageById(id);
   }
 
-  @RequestMapping(value = "/delete/all", method = RequestMethod.DELETE)
+  @RequestMapping(value = "/delete/messages", method = RequestMethod.DELETE)
   public void deleteAllMessages() {
     messageService.deleteAllMessages();
   }
