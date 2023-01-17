@@ -18,11 +18,29 @@ public class Message {
   private Face face;
   private String body;
   LocalDateTime createDate;
+  private int like;
+  private int dislike;
+  private int report;
 
   public Message(Face face, String body) {
     this.face = face;
     this.body = body;
     this.createDate = LocalDateTime.now();
+    this.like = getLike();
+    this.dislike = getDislike();
+    this.report = getReport();
+  }
+
+  public int getLike() {
+    return like;
+  }
+
+  public int getDislike() {
+    return dislike;
+  }
+
+  public int getReport() {
+    return report;
   }
 
   public String getBody() { return body; }

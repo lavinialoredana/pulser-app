@@ -21,4 +21,11 @@ public class MessageTest {
     assertNotNull(message.createDate);
   }
 
+  @Test
+  public void itShouldReturnMessageStatistics() {
+    assertEquals(message.getLike(), 0);
+    assertEquals(message.getDislike(), 0);
+    assertEquals(message.getReport(), 0);
+  }
+
 }
