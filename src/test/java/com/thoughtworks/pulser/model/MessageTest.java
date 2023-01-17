@@ -12,11 +12,6 @@ public class MessageTest {
   Message message = new Message(face, body);
 
   @Test
-  public void itShouldHaveFaceAndBody() {
-    assertEquals(message.getFeedbackMessage(), "AWESOME" + " " + "my message body");
-  }
-
-  @Test
   public void itShouldHaveCreationTimeStamp() {
     assertNotNull(message.createDate);
   }

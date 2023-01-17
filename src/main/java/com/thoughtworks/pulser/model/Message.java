@@ -45,11 +45,12 @@ public class Message {
 
   public String getBody() { return body; }
 
+  public Face getFace() {
+    return face;
+  }
+
   public String getId() {
     return id;
   }
 
-  public String getFeedbackMessage() {
-    return face + " " + body;
-  }
 }
