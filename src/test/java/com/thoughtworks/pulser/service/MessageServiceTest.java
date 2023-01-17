@@ -1,6 +1,7 @@
 package com.thoughtworks.pulser.service;
 
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import static org.testng.Assert.assertEquals;
 
@@ -10,7 +11,6 @@ import com.thoughtworks.pulser.repository.MessageRepository;
 import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Optional;
-import org.mockito.Mockito;
 import org.testng.annotations.Test;
 
 public class MessageServiceTest {
@@ -46,14 +46,13 @@ public class MessageServiceTest {
   void itShouldDeleteAllMessages() {
     messageService.deleteAllMessages();
 
-    //TODO @Rebeca: All this class is a truly solid test, nice one! Just import Mockito so you don't have to call Mockito.<something> in the whole test
-    Mockito.verify(messageRepository).deleteAll();
+    verify(messageRepository).deleteAll();
   }
 
   @Test
   void itShouldDeleteMessageById() {
     messageService.deleteMessageById(message.getId());
-    Mockito.verify(messageRepository).deleteById(message.getId());
+    verify(messageRepository).deleteById(message.getId());
   }
 
   @Test(expectedExceptions = InputMismatchException.class, expectedExceptionsMessageRegExp = "ERROR: Empty message body given")
