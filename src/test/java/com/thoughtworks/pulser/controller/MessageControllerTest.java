@@ -18,9 +18,8 @@ public class MessageControllerTest {
 
   private MessageService messageService = mock(MessageService.class);
   MessageController messageController = new MessageController(messageService);
-
   Message message = new Message(Face.AWESOME, "my message");
-  Message message2 = new Message(Face.HAPPY, "my other message");
+
 
   @Test
   void itShouldReturnCreateMessageWhenMessageHasCorrectInformation() {
@@ -31,6 +30,8 @@ public class MessageControllerTest {
 
   @Test
   void itShouldReturnAllMessages() {
+    Message message2 = new Message(Face.HAPPY, "my other message");
+
     when(messageService.findAllMessages()).thenReturn(List.of(message, message2));
 
     assertEquals(messageController.findAllMessages(), List.of(message, message2));
@@ -45,14 +46,14 @@ public class MessageControllerTest {
 
   @Test
   void itShouldDeleteAllMessages() {
-    messageService.deleteAllMessages();
+    messageController.deleteAllMessages();
 
     verify(messageService).deleteAllMessages();
   }
 
   @Test
   void itShouldDeleteMessageWhenIdGiven() {
-    messageService.deleteMessageById(message.getId());
+    messageController.deleteMessageById(message.getId());
 
     verify(messageService).deleteMessageById(message.getId());
   }
