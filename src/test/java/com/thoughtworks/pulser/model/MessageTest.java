@@ -8,12 +8,12 @@ import org.testng.annotations.Test;
 public class MessageTest {
 
   private Message.Face face = Face.AWESOME;
-  private String body = "This is a COMPLETE feedback message";
+  private String body = "my message body";
   Message message = new Message(face, body);
 
   @Test
   public void itShouldHaveFaceAndBody() {
-    assertEquals(message.getFeedbackMessage(), "AWESOME" + " " + "This is a COMPLETE feedback message");
+    assertEquals(message.getFeedbackMessage(), "AWESOME" + " " + "my message body");
   }
 
   @Test
