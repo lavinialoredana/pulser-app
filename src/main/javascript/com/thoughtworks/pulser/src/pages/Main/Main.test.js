@@ -101,6 +101,12 @@ describe("WIP ROUTER TESTING", () => {
     cleanup();
   });
 
+  it("should match snapshot", () => {
+    const { asFragment } = render(<Main />, { wrapper: BrowserRouter });
+
+    expect(asFragment()).toMatchSnapshot();
+  });
+  
   it("should verify page content for expected route after navigating", async () => {
     const user = userEvent.setup();
     const mockedFetch = jest.fn(() => {
@@ -112,7 +118,7 @@ describe("WIP ROUTER TESTING", () => {
 
     const landingRoute = "/";
     const pulserFeedRoute = "/pulserfeed/messages";
-   
+
     const history = createMemoryHistory(routesConfig, {
       initialEntries: [landingRoute],
     });
@@ -131,13 +137,31 @@ describe("WIP ROUTER TESTING", () => {
     await user.type(textArea, message);
 
     jest.spyOn(global, "fetch").mockImplementation(mockedFetch);
-    
+
     expect(history.location.pathname).toBe(landingRoute);
 
     const submitButton = screen.getByTestId("button");
     await user.click(submitButton);
 
     expect(history.location.pathname).toBe(pulserFeedRoute);
+  });
+
+  test("landing on the main page", () => {
+    const landingRoute = "/";
+    const badRoute = "/some/bad/route";
+
+    const history = createMemoryHistory(routesConfig, {
+      initialEntries: [landingRoute],
+    });
+
+    render(
+      <Router location={history} navigator={history}>
+        <Main />
+      </Router>
+    );
+
+    expect(history.location.pathname).not.toBe(badRoute);
+    expect(history.location.pathname).toBe(landingRoute);
   });
 });
 
