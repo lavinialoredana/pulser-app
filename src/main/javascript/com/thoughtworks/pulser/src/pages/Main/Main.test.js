@@ -1,6 +1,6 @@
 import { cleanup, render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { BrowserRouter, Router } from "react-router-dom";
+import { BrowserRouter, RouterProvider, Router } from "react-router-dom";
 import Main from "./index.jsx";
 import { routesConfig } from "../../routes/AppRouter.js";
 import * as router from "react-router";
@@ -96,17 +96,11 @@ describe("Main Page full user flow", () => {
   });
 });
 
-describe("WIP ROUTER TESTING", () => {
+describe("Router error page testing", () => {
   afterEach(() => {
     cleanup();
   });
 
-  it("should match snapshot", () => {
-    const { asFragment } = render(<Main />, { wrapper: BrowserRouter });
-
-    expect(asFragment()).toMatchSnapshot();
-  });
-  
   it("should verify page content for expected route after navigating", async () => {
     const user = userEvent.setup();
     const mockedFetch = jest.fn(() => {
@@ -163,11 +157,26 @@ describe("WIP ROUTER TESTING", () => {
     expect(history.location.pathname).not.toBe(badRoute);
     expect(history.location.pathname).toBe(landingRoute);
   });
+
+  test("landing on the error page", () => {
+    const badRoute = "/some/bad/route";
+
+    const customMemoryRouter = router.createMemoryRouter(routesConfig, {
+      initialEntries: [badRoute],
+    });
+
+    render(<RouterProvider router={customMemoryRouter} />);
+
+    const errorPageTitleElement = screen.getByTestId("error-title");
+
+    expect(customMemoryRouter.state.location.pathname).toBe(badRoute);
+    expect(errorPageTitleElement).toBeInTheDocument();
+  });
 });
 
 const navigateMock = jest.fn();
 
-describe("Router testing", () => {
+describe("Router happy path testing", () => {
   beforeEach(() => {
     jest.spyOn(router, "useNavigate").mockImplementation(() => navigateMock);
   });
@@ -175,11 +184,6 @@ describe("Router testing", () => {
     cleanup();
   });
 
-  it("should match snapshot", () => {
-    const { asFragment } = render(<Main />, { wrapper: BrowserRouter });
-
-    expect(asFragment()).toMatchSnapshot();
-  });
   it("should call navigate on submit button", async () => {
     const user = userEvent.setup();
     const mockedFetch = jest.fn(() => {
