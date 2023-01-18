@@ -37,7 +37,7 @@ public class MessageControllerIntegrationTest extends AbstractTestNGSpringContex
 
   @Test
   void itShouldReturnOkWhenGetByIdEndpointIsCalled() throws Exception{
-    mockMvc.perform(MockMvcRequestBuilders.get("/pulserfeed/message/63c13ed223b39f48a6b5f024"))
+    mockMvc.perform(MockMvcRequestBuilders.get("/pulserfeed/messages/63c13ed223b39f48a6b5f024"))
         .andExpect(MockMvcResultMatchers.status().is(200));
   }
 
