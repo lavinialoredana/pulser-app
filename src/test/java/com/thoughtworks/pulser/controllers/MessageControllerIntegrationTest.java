@@ -1,4 +1,4 @@
-package com.thoughtworks.pulser.controller;
+package com.thoughtworks.pulser.controllers;
 
 import com.thoughtworks.pulser.service.MessageService;
 import org.springframework.beans.factory.annotation.Autowired;
