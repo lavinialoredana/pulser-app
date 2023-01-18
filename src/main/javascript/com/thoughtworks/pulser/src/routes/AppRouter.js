@@ -9,8 +9,8 @@ export const routesConfig = [
   },
 
   {
-    path:"/pulserfeed/messages",
-    element: <PulserFeed/>
+    path: "/pulserfeed/messages",
+    element: <PulserFeed />,
   },
 ];
 

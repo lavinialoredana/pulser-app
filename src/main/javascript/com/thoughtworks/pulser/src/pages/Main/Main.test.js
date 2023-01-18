@@ -1,9 +1,10 @@
 import { cleanup, render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, Router } from "react-router-dom";
 import Main from "./index.jsx";
+import { routesConfig } from "../../routes/AppRouter.js";
 import * as router from "react-router";
-
+import { createMemoryHistory } from "@remix-run/router";
 
 describe("Main Page structure", () => {
   afterEach(() => {
@@ -92,6 +93,51 @@ describe("Main Page full user flow", () => {
         }),
       }
     );
+  });
+});
+
+describe("WIP ROUTER TESTING", () => {
+  afterEach(() => {
+    cleanup();
+  });
+
+  it("should verify page content for expected route after navigating", async () => {
+    const user = userEvent.setup();
+    const mockedFetch = jest.fn(() => {
+      return Promise.resolve({
+        status: 200,
+        json: () => Promise.resolve({ success: "OK" }),
+      });
+    });
+
+    const landingRoute = "/";
+    const pulserFeedRoute = "/pulserfeed/messages";
+   
+    const history = createMemoryHistory(routesConfig, {
+      initialEntries: [landingRoute],
+    });
+
+    render(
+      <Router location={history} navigator={history}>
+        <Main />
+      </Router>
+    );
+
+    const awesomeImage = screen.getByAltText("awesome_face");
+    await user.click(awesomeImage);
+
+    const message = "Thank you!";
+    const textArea = screen.getByTestId("textarea-field");
+    await user.type(textArea, message);
+
+    jest.spyOn(global, "fetch").mockImplementation(mockedFetch);
+    
+    expect(history.location.pathname).toBe(landingRoute);
+
+    const submitButton = screen.getByTestId("button");
+    await user.click(submitButton);
+
+    expect(history.location.pathname).toBe(pulserFeedRoute);
   });
 });
 

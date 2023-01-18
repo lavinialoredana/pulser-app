@@ -1,7 +1,7 @@
 const PulserFeed = () => {
   return (
     <div className="Pulser-feed-container">
-      <h1> Welcome to my feed</h1>
+      <h1 data-testid = "pulser-feed"> Welcome to my feed</h1>
     </div>
   );
 };
