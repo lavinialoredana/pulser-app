@@ -1,4 +1,4 @@
-package com.thoughtworks.pulser.controller;
+package com.thoughtworks.pulser.controllers;
 
 import com.thoughtworks.pulser.model.Message;
 import com.thoughtworks.pulser.service.MessageService;
@@ -8,12 +8,12 @@ import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -34,17 +34,17 @@ public class MessageController {
     return messageService.findAllMessages();
   }
 
-  @GetMapping(value = "/message/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+  @GetMapping(value = "/messages/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
   public @ResponseBody Optional<Message> findMessage(@PathVariable String id) {
     return messageService.findMessageById(id);
   }
 
-  @RequestMapping(value = "/delete/messages", method = RequestMethod.DELETE)
+  @DeleteMapping(value = "/delete/messages")
   public void deleteAllMessages() {
     messageService.deleteAllMessages();
   }
 
-  @RequestMapping(value = "/delete/{id}", method = RequestMethod.DELETE)
+  @DeleteMapping(value = "/delete/{id}")
   public void deleteMessageById(@PathVariable String id) {
     messageService.deleteMessageById(id);
   }
