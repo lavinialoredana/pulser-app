@@ -1,4 +1,4 @@
-package com.thoughtworks.pulser.controller;
+package com.thoughtworks.pulser.controllers;
 
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
