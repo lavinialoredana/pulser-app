@@ -1,3 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`PulserMessage component should match snapshot 1`] = `<DocumentFragment />`;
+exports[`PulserMessage component should match snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="Pulser-message"
+  >
+    <div
+      data-testid="reaction-title"
+    >
+      <span>
+         Happy
+      </span>
+    </div>
+  </div>
+</DocumentFragment>
+`;

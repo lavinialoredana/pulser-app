@@ -1,7 +1,11 @@
 import React from "react";
 
 const PulserMessage = ()=>{
-    return("")
+    return(<div className="Pulser-message">
+     <div data-testid="reaction-title">
+      <span> Happy</span>
+     </div>
+    </div>)
 };
 
 export default PulserMessage;
