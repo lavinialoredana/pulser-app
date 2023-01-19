@@ -29,4 +29,14 @@ describe("PulserMessage component", () => {
 
      expect(imageElement.src).toContain("happy_face");
    });
+
+    it("should contain a message", () => {
+      render(<PulserMessage />);
+
+      const messageElement = screen.getByTestId("reaction-message");
+      const messageText = screen.getByText("First message");
+
+      expect(messageElement).toBeInTheDocument();
+      expect(messageText).toBeInTheDocument();
+    });
 });

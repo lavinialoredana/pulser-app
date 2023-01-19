@@ -12,6 +12,10 @@ const PulserMessage = () => {
           <img src={happyFace} alt="happy_face" />
         </div>
       </div>
+
+      <div className="Reaction-message" data-testid="reaction-message">
+        <p> First message </p>
+      </div>
     </div>
   );
 };

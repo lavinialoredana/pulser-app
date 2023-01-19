@@ -25,6 +25,14 @@ exports[`PulserMessage component should match snapshot 1`] = `
         />
       </div>
     </div>
+    <div
+      class="Reaction-message"
+      data-testid="reaction-message"
+    >
+      <p>
+         First message 
+      </p>
+    </div>
   </div>
 </DocumentFragment>
 `;
