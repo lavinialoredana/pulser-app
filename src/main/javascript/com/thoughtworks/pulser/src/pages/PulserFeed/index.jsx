@@ -1,7 +1,11 @@
+import "./PulserFeed.css";
+
 const PulserFeed = () => {
   return (
-    <div className="Pulser-feed-container">
-      <h1 data-testid = "pulser-feed"> Welcome to my feed</h1>
+    <div className="Pulser-feed">
+      <header className="Pulser-feed-header" data-testid = "pulser-feed"> 
+      <h1> Pulser Feed</h1>
+      </header>
     </div>
   );
 };
