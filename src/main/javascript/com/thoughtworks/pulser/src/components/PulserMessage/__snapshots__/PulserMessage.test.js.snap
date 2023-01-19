@@ -6,11 +6,24 @@ exports[`PulserMessage component should match snapshot 1`] = `
     class="Pulser-message"
   >
     <div
-      data-testid="reaction-title"
+      class="Title-image-reaction"
     >
-      <span>
-         Happy
-      </span>
+      <div
+        class="Reaction-title"
+        data-testid="reaction-title"
+      >
+        <span>
+           Happy
+        </span>
+      </div>
+      <div
+        class="Reaction-image"
+      >
+        <img
+          alt="happy_face"
+          src="happy_face.png"
+        />
+      </div>
     </div>
   </div>
 </DocumentFragment>

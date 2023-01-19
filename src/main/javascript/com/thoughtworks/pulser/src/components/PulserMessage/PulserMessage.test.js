@@ -21,4 +21,12 @@ describe("PulserMessage component", () => {
     expect(titleElement).toBeInTheDocument();
     expect(titleText).toBeInTheDocument()
   })
+
+   it("should contain a reaction image", () => {
+     render(<PulserMessage />);
+
+     const imageElement = screen.getByAltText("happy_face");
+
+     expect(imageElement.src).toContain("happy_face");
+   });
 });
