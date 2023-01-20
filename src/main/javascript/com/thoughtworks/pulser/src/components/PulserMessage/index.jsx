@@ -1,21 +1,29 @@
 import React from "react";
-import happyFace from "../../assets/images/happy_face.png";
 import "./PulserMessage.css";
 
-const PulserMessage = () => {
+const PulserMessage = ({
+  reactionTitle,
+  reactionFace,
+  reactionFaceAlt,
+  feedbackMessage,
+}) => {
   return (
     <div className="Pulser-message-container">
       <div className="Title-image-reaction-container">
         <div className="Reaction-title" data-testid="reaction-title">
-          <h3> Happy</h3>
+          <h3> {reactionTitle}</h3>
         </div>
         <div>
-          <img src={happyFace} alt="happy_face" className="Reaction-image" />
+          <img
+            src={reactionFace}
+            alt={reactionFaceAlt}
+            className="Reaction-image"
+          />
         </div>
       </div>
 
       <div className="Reaction-message" data-testid="reaction-message">
-        <p>First message</p>
+        <p>{feedbackMessage}</p>
       </div>
     </div>
   );

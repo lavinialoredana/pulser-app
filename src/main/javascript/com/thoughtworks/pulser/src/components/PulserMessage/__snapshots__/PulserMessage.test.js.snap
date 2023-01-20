@@ -13,14 +13,14 @@ exports[`PulserMessage component should match snapshot 1`] = `
         data-testid="reaction-title"
       >
         <h3>
-           Happy
+           Awesome
         </h3>
       </div>
       <div>
         <img
-          alt="happy_face"
+          alt="awesome_face"
           class="Reaction-image"
-          src="happy_face.png"
+          src="awesome_face"
         />
       </div>
     </div>
@@ -29,7 +29,7 @@ exports[`PulserMessage component should match snapshot 1`] = `
       data-testid="reaction-message"
     >
       <p>
-        First message
+        having a great time!
       </p>
     </div>
   </div>
