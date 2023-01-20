@@ -3,24 +3,23 @@
 exports[`PulserMessage component should match snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="Pulser-message"
+    class="Pulser-message-container"
   >
     <div
-      class="Title-image-reaction"
+      class="Title-image-reaction-container"
     >
       <div
         class="Reaction-title"
         data-testid="reaction-title"
       >
-        <span>
+        <h3>
            Happy
-        </span>
+        </h3>
       </div>
-      <div
-        class="Reaction-image"
-      >
+      <div>
         <img
           alt="happy_face"
+          class="Reaction-image"
           src="happy_face.png"
         />
       </div>
@@ -30,7 +29,7 @@ exports[`PulserMessage component should match snapshot 1`] = `
       data-testid="reaction-message"
     >
       <p>
-         First message 
+        First message
       </p>
     </div>
   </div>
