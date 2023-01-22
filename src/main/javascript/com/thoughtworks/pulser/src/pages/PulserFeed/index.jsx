@@ -2,8 +2,34 @@ import React from "react";
 import PulserMessages from "../../components/PulserMessages";
 import "./PulserFeed.css";
 import { mockedDataArray } from "../../utils/mockedData";
+import { useState } from "react";
+import { useEffect } from "react";
 
 const PulserFeed = () => {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(
+          "https://localhost:8080/pulserfeed/messages"
+        );
+        if (response.status === 200) {
+          const jsonResponse = await response.json();
+          setData(jsonResponse);
+        } else {
+          // in case no data is received from server
+          setData(undefined)
+        }
+      } catch (error) {
+        console.log(error);
+        setData(undefined)
+        throw new Error(error);
+      }
+    };
+    fetchData();
+  });
+
   return (
     <div className="Pulser-feed">
       <header className="Pulser-feed-header" data-testid="pulser-feed">
