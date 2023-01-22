@@ -15,6 +15,22 @@ describe("PulserMessages component", () => {
     expect(asFragment()).toMatchSnapshot();
   });
 
+  it("should display message on invalid input", () => {
+    render(<PulserMessages />);
+
+    const invalidMessage = screen.getByTestId("pulser-invalid-message");
+
+    expect(invalidMessage).toBeInTheDocument();
+  });
+
+  it("should display message on no data", () => {
+    render(<PulserMessages feedData={[]} />);
+
+    const noDataMessage = screen.getByTestId("pulser-no-data-message");
+
+    expect(noDataMessage).toBeInTheDocument();
+  });
+
   it("should contain Awesome title and awesome_face image", () => {
     render(<PulserMessages feedData={mockedDataArray} />);
 
