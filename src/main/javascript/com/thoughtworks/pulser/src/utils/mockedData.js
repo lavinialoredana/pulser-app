@@ -16,7 +16,7 @@ export const mockedDataArray=[
     },
     {
         id: "63c8128320b26e6a06d92c1c",
-        face: "AWFUL",
+        face: "ANGRY",
         body: "not good at all, not gonna lie",
     }
 ]
