@@ -10,7 +10,7 @@ import com.thoughtworks.pulser.model.Message.Face;
 import com.thoughtworks.pulser.service.MessageService;
 import java.util.List;
 import java.util.Optional;
-import org.springframework.http.HttpStatusCode;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.testng.annotations.Test;
 
@@ -25,7 +25,7 @@ public class MessageControllerTest {
   void itShouldReturnCreateMessageWhenMessageHasCorrectInformation() {
     when(messageService.saveMessage(message)).thenReturn(message);
 
-    assertEquals(messageController.createMessage(message), new ResponseEntity<>(message, HttpStatusCode.valueOf(200)));
+    assertEquals(messageController.createMessage(message), new ResponseEntity<>(message, HttpStatus.OK.valueOf(200)));
   }
 
   @Test

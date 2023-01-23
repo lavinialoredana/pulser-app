@@ -5,7 +5,7 @@ import com.thoughtworks.pulser.service.MessageService;
 import java.util.List;
 import java.util.Optional;
 import lombok.AllArgsConstructor;
-import org.springframework.http.HttpStatusCode;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -26,7 +26,7 @@ public class MessageController {
 
   @PostMapping(value = "/message", produces = MediaType.APPLICATION_JSON_VALUE)
   public @ResponseBody ResponseEntity<Message> createMessage(@RequestBody Message message) {
-    return new ResponseEntity<>(messageService.saveMessage(message), HttpStatusCode.valueOf(200));
+    return new ResponseEntity<>(messageService.saveMessage(message), HttpStatus.OK.valueOf(200));
   }
 
   @GetMapping(value = "/messages", produces = MediaType.APPLICATION_JSON_VALUE)
