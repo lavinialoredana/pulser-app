@@ -132,14 +132,14 @@ exports[`PulserFeed Page structure should match snapshot 1`] = `
             data-testid="reaction-title"
           >
             <h3>
-               Angry
+               Awful
             </h3>
           </div>
           <div>
             <img
-              alt="angry_face"
+              alt="awful_face"
               class="Reaction-image"
-              src="angry_face.png"
+              src="awful_face.png"
             />
           </div>
         </div>

@@ -65,12 +65,12 @@ exports[`Reactions Component should match snapshot 1`] = `
         <h3
           data-testid="feedBackReaction-title"
         >
-           Angry
+           Awful
         </h3>
         <img
-          alt="angry_face"
+          alt="awful_face"
           class="Feedback-reaction-image"
-          src="angry_face.png"
+          src="awful_face.png"
         />
       </div>
     </div>

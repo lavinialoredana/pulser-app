@@ -19,11 +19,11 @@ const PulserFeed = () => {
           setData(jsonResponse);
         } else {
           // in case no data is received from server
-          setData(undefined)
+          setData(undefined);
         }
       } catch (error) {
         console.log(error);
-        setData(undefined)
+        setData(undefined);
         throw new Error(error);
       }
     };

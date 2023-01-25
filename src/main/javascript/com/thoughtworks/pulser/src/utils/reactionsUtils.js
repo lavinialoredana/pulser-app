@@ -1,7 +1,7 @@
-import awesomeFace from "../assets/images/awesome_face.png"
+import awesomeFace from "../assets/images/awesome_face.png";
 import happyFace from "../assets/images/happy_face.png";
 import sadFace from "../assets/images/sad_face.png";
-import angryFace from "../assets/images/angry_face.png";
+import awfulFace from "../assets/images/awful_face.png";
 
 export const reactionsArray = [
   {
@@ -23,9 +23,9 @@ export const reactionsArray = [
     reactionAlt: "sad_face",
   },
   {
-    key: "ANGRY",
-    reactionName: "Angry",
-    reactionImage: angryFace,
-    reactionAlt: "angry_face",
+    key: "AWFUL",
+    reactionName: "Awful",
+    reactionImage: awfulFace,
+    reactionAlt: "awful_face",
   },
 ];

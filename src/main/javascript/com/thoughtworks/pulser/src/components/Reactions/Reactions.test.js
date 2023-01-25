@@ -69,7 +69,7 @@ describe("Reactions Component", () => {
     expect(awesomeImage.src).toContain("sad_face.png");
   });
 
-  it("should render Angry title and angry_face image", () => {
+  it("should render Awful title and awful_face image", () => {
     const onReactionPressMock = jest.fn();
     render(
       <Reactions
@@ -78,10 +78,10 @@ describe("Reactions Component", () => {
       />
     );
 
-    const titleText = screen.getByText("Angry");
-    const awesomeImage = screen.getByAltText("angry_face");
+    const titleText = screen.getByText("Awful");
+    const awesomeImage = screen.getByAltText("awful_face");
 
     expect(titleText).toBeInTheDocument();
-    expect(awesomeImage.src).toContain("angry_face.png");
+    expect(awesomeImage.src).toContain("awful_face.png");
   });
 });
