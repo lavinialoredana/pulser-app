@@ -34,6 +34,7 @@ function Main() {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          // "Authorization": `Basic ${btoa("user:password")}`,
         },
         body: JSON.stringify({
           // expected POST request payload goes here

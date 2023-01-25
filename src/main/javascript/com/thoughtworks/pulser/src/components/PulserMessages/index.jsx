@@ -19,22 +19,21 @@ const PulserMessages = ({ feedData }) => {
   }
 
   return feedData.map((message) => {
-    for (let i = 0; i < reactionsArray.length; i++) {
-      if (message.face === reactionsArray[i].key) {
-        return (
-          <div className="Pulser-messages-container" key={message.id}>
-            <PulserMessage
-              reactionTitle={reactionsArray[i].reactionName}
-              reactionFace={reactionsArray[i].reactionImage}
-              reactionFaceAlt={reactionsArray[i].reactionAlt}
-              feedbackMessage={message.body}
-            />
-          </div>
-        );
-      }
+    const reaction = reactionsArray.find((x) => message.face === x.key);
+    if (!reaction) {
+      throw new Error(
+        `The following message ${message} cannot be displayed properly.`
+      );
     }
-    throw new Error(
-      `The following message ${message} cannot be displayed properly.`
+    return (
+      <div className="Pulser-messages-container" key={message.id}>
+        <PulserMessage
+          reactionTitle={reaction.reactionName}
+          reactionFace={reaction.reactionImage}
+          reactionFaceAlt={reaction.reactionAlt}
+          feedbackMessage={message.body}
+        />
+      </div>
     );
   });
 };
