@@ -58,7 +58,7 @@ public class MessageControllerIntegrationTest extends AbstractTestNGSpringContex
   }
 
   @Test
-  @WithMockUser(username = "user", password = "password", roles = "USER_ROLE")
+  @WithMockUser(username = "user", password = "password", roles = "USER")
   void itShouldReturnOkWhenDeleteByIdEndpointIsCalled() throws Exception{
     mockMvc.perform(MockMvcRequestBuilders.delete("/pulserfeed/delete/63c1378823b39f48a6b5f01d").with(csrf()))
         .andExpect(MockMvcResultMatchers.status().is(200));
