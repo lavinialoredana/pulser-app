@@ -4,14 +4,20 @@ import "././Main.css";
 import { useState } from "react";
 import Button from "../../components/Button";
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 function Main() {
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isDisabled, setIsDisabled] = useState(false);
   const [pulserObject, setPulserObject] = useState({
     userReaction: "",
     userMessage: "",
   });
 
+  useEffect(() => {
+    setIsDisabled(
+      pulserObject.userMessage === "" || pulserObject.userReaction === ""
+    );
+  }, [pulserObject]);
   const handleUserReactionChange = (reactionKey) => {
     setPulserObject({ ...pulserObject, userReaction: reactionKey });
   };
@@ -24,10 +30,10 @@ function Main() {
     return reactionKey === pulserObject.userReaction;
   };
 
- let navigate = useNavigate();
+  let navigate = useNavigate();
 
   const handleButtonClick = async () => {
-    setIsSubmitting(true);
+    setIsDisabled(true);
 
     try {
       const response = await fetch("https://reqbin.com/echo/post/json", {
@@ -44,14 +50,14 @@ function Main() {
           body: pulserObject.userMessage,
         }),
       });
-      console.log("RESPONSE STATUS", response)
+      console.log("RESPONSE STATUS", response);
       // logic when the fetch is successful
       if (response.status === 200) {
         setPulserObject({
           userReaction: "",
           userMessage: "",
-        })
-         navigate("/pulserfeed/messages");
+        });
+        navigate("/pulserfeed/messages");
 
         // parsed response after the fetch
         const data = await response.json();
@@ -60,24 +66,13 @@ function Main() {
     } catch (error) {
       console.log(error);
       throw new Error(error);
+    } finally {
+      setIsDisabled(false);
     }
-
-    setIsSubmitting(false);
-   
-  };
-
-  const handleDisabledState = () => {
-    if (pulserObject.userMessage === "" || pulserObject.userReaction === "") {
-      return true;
-    }
-    if (isSubmitting) {
-      return true;
-    }
-    return false;
   };
 
   return (
-    <div className="Main" data-testid = "main-page">
+    <div className="Main" data-testid="main-page">
       <header className="Main-header">
         <h1 data-testid="main-header"> How are you feeling today? </h1>
       </header>
@@ -93,7 +88,7 @@ function Main() {
         <Button
           onClickButton={handleButtonClick}
           buttonName="Submit"
-          isDisabled={handleDisabledState}
+          isDisabled={() => isDisabled}
         />
       </div>
     </div>
