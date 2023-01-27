@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @AllArgsConstructor
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/pulserfeed")
 public class MessageController {
@@ -26,7 +27,6 @@ public class MessageController {
   private final MessageService messageService;
 
   @PostMapping(value = "/message", produces = MediaType.APPLICATION_JSON_VALUE)
-  @CrossOrigin(origins = "http://localhost:8080, http://localhost:3000")
   public @ResponseBody ResponseEntity<Message> createMessage(@RequestBody Message message) {
     return new ResponseEntity<>(messageService.saveMessage(message), HttpStatus.OK.valueOf(200));
   }

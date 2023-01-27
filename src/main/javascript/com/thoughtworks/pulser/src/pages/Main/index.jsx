@@ -36,11 +36,11 @@ function Main() {
     setIsDisabled(true);
 
     try {
-      const response = await fetch("https://reqbin.com/echo/post/json", {
+      const response = await fetch("http://localhost:8080/pulserfeed/message", {
         // mode: "no-cors",
         method: "POST",
         headers: {
-          // "Content-Type": "application/json",
+          "Content-Type": "application/json",
           Accept: "application/json",
           // Authorization: `Basic user:password`,
         },

@@ -43,7 +43,7 @@ const PulserFeed = () => {
       <header className="Pulser-feed-header" data-testid="pulser-feed">
         <h1> Pulser Feed</h1>
       </header>
-      <PulserMessages feedData={mockedDataArray} />
+      <PulserMessages feedData={data} />
       <Button
         onClickButton={handleButtonClick}
         buttonName="Back to landing"
