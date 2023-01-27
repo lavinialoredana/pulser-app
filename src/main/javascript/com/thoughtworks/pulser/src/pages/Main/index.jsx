@@ -30,14 +30,13 @@ function Main() {
     setIsSubmitting(true);
 
     try {
-      // console.log("`Bearer ${btoa(\"user:password\")}`")
-      const response = await fetch("http://localhost:8080/pulserfeed/message", {
-        mode: 'no-cors',
-        method: "post",
+      const response = await fetch("https://reqbin.com/echo/post/json", {
+        // mode: "no-cors",
+        method: "POST",
         headers: {
-          "Content-Type": "application/json",
-          "Accept": "application/json",
-          "Authorization": `Basic user:password`,
+          // "Content-Type": "application/json",
+          Accept: "application/json",
+          // Authorization: `Basic user:password`,
         },
         body: JSON.stringify({
           // expected POST request payload goes here

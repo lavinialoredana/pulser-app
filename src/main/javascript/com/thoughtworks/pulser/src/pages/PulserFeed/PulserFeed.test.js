@@ -21,6 +21,15 @@ describe("PulserFeed Page structure", () => {
 
     expect(titleElement).toBeInTheDocument();
   });
+
+  it("should contain button", () => {
+  
+    render(<PulserFeed />, { wrapper: BrowserRouter });
+
+    const buttonComponent = screen.getByTestId("button");
+    
+    expect(buttonComponent).toBeInTheDocument();
+  });
 });
 
 describe("PulserFeed user flow", () => {
@@ -42,7 +51,7 @@ describe("PulserFeed user flow", () => {
 
     expect(mockedFetch).toHaveBeenCalledTimes(1);
     expect(mockedFetch).toHaveBeenCalledWith(
-      "https://localhost:8080/pulserfeed/messages"
+      "http://localhost:8080/pulserfeed/messages"
     );
   });
 });

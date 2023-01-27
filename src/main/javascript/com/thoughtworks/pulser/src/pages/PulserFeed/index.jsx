@@ -4,6 +4,8 @@ import "./PulserFeed.css";
 import { mockedDataArray } from "../../utils/mockedData";
 import { useState } from "react";
 import { useEffect } from "react";
+import Button from "../../components/Button";
+import { useNavigate } from "react-router-dom";
 
 const PulserFeed = () => {
   const [data, setData] = useState([]);
@@ -30,12 +32,23 @@ const PulserFeed = () => {
     fetchData();
   });
 
+  let navigate = useNavigate();
+  const handleButtonClick = () => {
+    navigate("/");
+  };
+  
+
   return (
     <div className="Pulser-feed">
       <header className="Pulser-feed-header" data-testid="pulser-feed">
         <h1> Pulser Feed</h1>
       </header>
-      <PulserMessages feedData={data} />
+      <PulserMessages feedData={mockedDataArray} />
+      <Button
+        onClickButton={handleButtonClick}
+        buttonName="Back to landing"
+        isDisabled={()=>false}
+      />
     </div>
   );
 };

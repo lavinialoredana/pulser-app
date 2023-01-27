@@ -85,7 +85,7 @@ describe("Main Page full user flow", () => {
       {
         method: "POST",
         headers: {
-          "Content-Type": "application/json",
+          Accept: "application/json",
         },
         body: JSON.stringify({
           face: faceKey,

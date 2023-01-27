@@ -153,6 +153,14 @@ exports[`PulserFeed Page structure should match snapshot 1`] = `
         </div>
       </div>
     </div>
+    <div>
+      <button
+        data-testid="button"
+        name="Back to landing"
+      >
+        Back to landing
+      </button>
+    </div>
   </div>
 </DocumentFragment>
 `;
