@@ -12,7 +12,7 @@ const PulserFeed = () => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          "https://localhost:8080/pulserfeed/messages"
+          "http://localhost:8080/pulserfeed/messages"
         );
         if (response.status === 200) {
           const jsonResponse = await response.json();
@@ -35,7 +35,7 @@ const PulserFeed = () => {
       <header className="Pulser-feed-header" data-testid="pulser-feed">
         <h1> Pulser Feed</h1>
       </header>
-      <PulserMessages feedData={mockedDataArray} />
+      <PulserMessages feedData={data} />
     </div>
   );
 };

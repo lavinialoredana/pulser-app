@@ -30,11 +30,14 @@ function Main() {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch("https://reqbin.com/echo/post/json", {
-        method: "POST",
+      // console.log("`Bearer ${btoa(\"user:password\")}`")
+      const response = await fetch("http://localhost:8080/pulserfeed/message", {
+        mode: 'no-cors',
+        method: "post",
         headers: {
           "Content-Type": "application/json",
-          // "Authorization": `Basic ${btoa("user:password")}`,
+          "Accept": "application/json",
+          "Authorization": `Basic ${btoa("user:password")}`,
         },
         body: JSON.stringify({
           // expected POST request payload goes here
@@ -42,7 +45,7 @@ function Main() {
           body: pulserObject.userMessage,
         }),
       });
-      console.log("RESPONSE STATUS", response.status)
+      console.log("RESPONSE STATUS", response)
       // logic when the fetch is successful
       if (response.status === 200) {
         setPulserObject({
