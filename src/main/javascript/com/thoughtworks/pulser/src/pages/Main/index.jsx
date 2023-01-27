@@ -37,7 +37,7 @@ function Main() {
         headers: {
           "Content-Type": "application/json",
           "Accept": "application/json",
-          "Authorization": `Basic ${btoa("user:password")}`,
+          "Authorization": `Basic user:password`,
         },
         body: JSON.stringify({
           // expected POST request payload goes here
