@@ -1,7 +1,6 @@
 import React from "react";
 import PulserMessages from "../../components/PulserMessages";
 import "./PulserFeed.css";
-import { mockedDataArray } from "../../utils/mockedData";
 import { useState } from "react";
 import { useEffect } from "react";
 import Button from "../../components/Button";
@@ -36,7 +35,6 @@ const PulserFeed = () => {
   const handleButtonClick = () => {
     navigate("/");
   };
-  
 
   return (
     <div className="Pulser-feed">
@@ -47,7 +45,7 @@ const PulserFeed = () => {
       <Button
         onClickButton={handleButtonClick}
         buttonName="Back to landing"
-        isDisabled={()=>false}
+        isDisabled={() => false}
       />
     </div>
   );

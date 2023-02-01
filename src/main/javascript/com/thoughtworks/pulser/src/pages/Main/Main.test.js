@@ -81,10 +81,11 @@ describe("Main Page full user flow", () => {
 
     expect(mockedFetch).toHaveBeenCalledTimes(1);
     expect(mockedFetch).toHaveBeenCalledWith(
-      "https://reqbin.com/echo/post/json",
+      "http://localhost:8080/pulserfeed/message",
       {
         method: "POST",
         headers: {
+          "Content-Type": "application/json",
           Accept: "application/json",
         },
         body: JSON.stringify({
