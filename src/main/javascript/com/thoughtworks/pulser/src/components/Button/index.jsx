@@ -1,9 +1,11 @@
 import React from 'react'
+import "./Button.css";
 
 const Button = ({ onClickButton, buttonName, isDisabled }) => {
   return (
     <div>
-      <button
+      <button 
+        className="Button"
         data-testid="button"
         onClick={onClickButton}
         name={buttonName}

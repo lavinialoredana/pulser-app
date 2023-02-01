@@ -99,6 +99,7 @@ exports[`Main Page full user flow should match snapshot 1`] = `
       </div>
       <div>
         <button
+          class="Button"
           data-testid="button"
           disabled=""
           name="Submit"
@@ -210,6 +211,7 @@ exports[`Main Page structure should match snapshot 1`] = `
       </div>
       <div>
         <button
+          class="Button"
           data-testid="button"
           disabled=""
           name="Submit"
